@@ -1,18 +1,18 @@
-如何在Linux下使用Gitblit工具创建Git仓库服务
+﻿如何在Linux下使用Gitblit工具创建Git仓库服务
 ================================================================================
-嗨！朋友，今天我们将学习如何在你的Linux服务器或者PC上安装Gitblit工具。首先，我们看看什么是Git，它的功能以及安装Gitblit的步骤。[Git是分布式版本控制系统][1]，它强调速度，数据一致性，并且支持分布式，非线性工作流。它最初由Linus Torvalds在2005年为了Linux内核设计和开发，使用GPL2证书。并且因此成为了软件开发中使用最广泛的版本控制系统。
+嗨！朋友，今天我们将学习如何在你的Linux服务器或者PC上安装Gitblit工具。首先，我们看看什么是Git，它的功能以及安装Gitblit的步骤。[Git是分布式版本控制系统][1]，它强调速度、数据一致性，并且支持分布式、非线性工作流。它最初由Linus Torvalds在2005年为Linux内核设计和开发，使用GPL2证书，并因此成为软件开发中使用最广泛的版本控制系统。
 
-[Gitblit是完全开源的软件][2]，它基于纯粹的Java堆栈，被设计用来处理从小型到极大型项目的任何方面，包括服务Git仓库速度和效率。它很容易学习和上手，它有着闪电般的性能。它在廉价本地分支、便于staging和多工作流等方面远胜于一些SCM工具比如Subversion、CVS、Perforce和ClearCase。
+[Gitblit是完全开源的软件][2]，它基于纯粹的Java堆栈，被设计以在Git仓库速度和效率方面胜任从小型到极大型的项目。它很容易学习和上手，并有着闪电般的性能。它在廉价的本地分支、便于staging、多工作流等方面远胜过一些SCM（版本控制）工具，比如Subversion、CVS、Perforce和ClearCase。
 
 #### Gitblit的功能 ####
 
-- 它能做为一个无声的仓库视图，没有管理控制以及用户账户。
+- 它可以做为一个无声的仓库视图，没有管理控制以及用户账户。
 - 它可以做为完整的Git堆栈，拥有clone, pushing和仓库存取控制。
 - 它能独立于其他Git工具使用（包括实际的Git），它能和您已创建的工具合作。
 
 ### 1.创建Gitblit安装目录 ###
 
-首先我们将在我们的服务器上建立一个目录，在该目录下，我们将安装最新的Gitblit。
+首先我们将在我们的服务器上建立一个目录，我们将在该目录下安装最新的Gitblit。
 
     $ sudo mkdir -p /opt/gitblit
 
@@ -36,7 +36,7 @@
 
 ### 3.配置并运行 ###
 
-现在，我们将对Gitblit进行配置。如果你想要定制Gitblit的行为，你可以修改`gitblit/data/gitblit.properties`。在你完成配置后，我们将运行我们的gitblit。有两种方式来运行gitblit，第一种是通过下面的命令手动的运行：
+现在，我们将对Gitblit进行配置。如果你想要定制Gitblit的行为，你可以修改`gitblit/data/gitblit.properties`。在完成配置后，我们将运行安装好的gitblit。有两种方式来运行gitblit，第一种是通过下面的命令手动运行：
 
     $ sudo java -jar gitblit.jar --baseFolder data
 
@@ -50,7 +50,7 @@
 
 ![启动gitblit服务](http://blog.linoxide.com/wp-content/uploads/2015/01/starting-gitblit-service.png)
 
-在你的浏览器中打开http://localhost:8080或者https://localhost:8443，或者将localhost根据本地配置替换为IP地址。输入默认的管理员凭证：admin/admin并点击login按钮。
+在你的浏览器中打开http://localhost:8080或https://localhost:8443，也可以将localhost根据本地配置替换为IP地址。输入默认的管理员凭证：admin/admin并点击login按钮。
 
 ![gitblit欢迎页面](http://blog.linoxide.com/wp-content/uploads/2015/01/gitblit-welcome.png)
 
@@ -84,7 +84,7 @@
 
 ### 结论 ###
 
-欢呼吧！我们已经在Linux电脑中安装好了最新版本的Gitblit。接下来我们便可以在我们的大小工程中享受这样一个优美的版本控制系统。有了Gitblit，版本控制便再容易不过了。它很容易学习并且轻量级、高性能。因此，如果你有任何的问题、建议和反馈，请在留言处留言。
+欢呼吧！我们已经在Linux电脑中安装好了最新版本的Gitblit。接下来我们便可以在我们的大小工程中享受这样一个优美的版本控制系统。有了Gitblit，版本控制便再容易不过了。它有易于学习、轻量级、高性能的特点。因此，如果你有任何的问题、建议和反馈，请在留言处留言。
 
 --------------------------------------------------------------------------------
 
