@@ -6,4 +6,96 @@
 
 #### Gitblit的功能 ####
 
+- 它能做为一个无声的仓库视图，没有管理控制以及用户账户。
+- 它可以做为完整的Git堆栈，拥有clone, pushing和仓库存取控制。
+- 它能独立于其他Git工具使用（包括实际的Git），它能和您已创建的工具合作。
 
+### 1.创建Gitblit安装目录 ###
+
+首先我们将在我们的服务器上建立一个目录，在该目录下，我们将安装最新的Gitblit。
+
+    $ sudo mkdir -p /opt/gitblit
+
+    $ cd /opt/gitblit
+
+![创建gitblit目录](http://blog.linoxide.com/wp-content/uploads/2015/01/creating-directory-gitblit.png)
+
+### 2. 下载并解压 ###
+
+现在，我们将从Gitblit官方站点下载最新版的Gitblit。这里我们将安装1.6.2版本。所以，请在安装时根据具体的版本对命令进行修改。
+
+    $ sudo wget http://dl.bintray.com/gitblit/releases/gitblit-1.6.2.tar.gz
+
+![下载gitblit安装包](http://blog.linoxide.com/wp-content/uploads/2015/01/downloading-gitblit.png)
+
+接下来，我们将解压下载到的tarball压缩包至之前创建的目录 /opt/gitblit/
+
+    $ sudo tar -zxvf gitblit-1.6.2.tar.gz
+
+![解压gitblit压缩包](http://blog.linoxide.com/wp-content/uploads/2015/01/extracting-gitblit-tar.png)
+
+### 3.配置并运行 ###
+
+现在，我们将对Gitblit进行配置。如果你想要定制Gitblit的行为，你可以修改`gitblit/data/gitblit.properties`。在你完成配置后，我们将运行我们的gitblit。有两种方式来运行gitblit，第一种是通过下面的命令手动的运行：
+
+    $ sudo java -jar gitblit.jar --baseFolder data
+
+另一种是将gitblit添加为服务。下面是在linux下将gitblit添加为服务的步骤。
+
+由于我在使用Ubuntu，下面的命令将是  sudo cp service-ubuntu.sh /etc/init.d/gitblit。所以请根据你的发行版修改文件名service-ubuntu.sh为相应的你运行的发行版。
+
+    $ sudo ./install-service-ubuntu.sh
+
+    $ sudo service gitblit  start
+
+![启动gitblit服务](http://blog.linoxide.com/wp-content/uploads/2015/01/starting-gitblit-service.png)
+
+在你的浏览器中打开http://localhost:8080或者https://localhost:8443，或者将localhost根据本地配置替换为IP地址。输入默认的管理员凭证：admin/admin并点击login按钮。
+
+![gitblit欢迎页面](http://blog.linoxide.com/wp-content/uploads/2015/01/gitblit-welcome.png)
+
+现在，我们将添加一个新的用户。首先，你需要以admin用户登录，username = **admin**，password = **admin**。
+
+然后，点击 user icon > users > (+) new user 来创建一个新用户，如下图所示。
+
+![添加新用户](http://blog.linoxide.com/wp-content/uploads/2015/01/add-user.png)
+
+现在，我们将创建一个开箱可用的仓库。点击 repositories > (+) new repository。然后，如下图所示添加新的仓库。
+
+![添加新的仓库](http://blog.linoxide.com/wp-content/uploads/2015/01/add-new-repository.png)
+
+#### 使用命令行创建一个新的仓库 ####
+
+        touch README.md
+        git init
+        git add README.md
+        git commit -m "first commit"
+        git remote add origin ssh://arunlinoxide@localhost:29418/linoxide.com.git
+        git push -u origin master
+
+请将用户名arunlinoxide替换为你添加的用户名。
+
+#### 在命令行中push一个已存在的仓库 ####
+
+        git remote add origin ssh://arunlinoxide@localhost:29418/linoxide.com.git
+        git push -u origin master
+
+**注意**：强烈建议所有人修改用户名“admin”的密码。
+
+### 结论 ###
+
+欢呼吧！我们已经在Linux电脑中安装好了最新版本的Gitblit。接下来我们便可以在我们的大小工程中享受这样一个优美的版本控制系统。有了Gitblit，版本控制便再容易不过了。它很容易学习并且轻量级、高性能。因此，如果你有任何的问题、建议和反馈，请在留言处留言。
+
+--------------------------------------------------------------------------------
+
+via: http://linoxide.com/linux-how-to/serve-git-repositories-gitblit/
+
+作者：[Arun Pyasi][a]
+译者：[wwy-hust](https://github.com/wwy-hust)
+校对：[校对者ID](https://github.com/校对者ID)
+
+本文由 [LCTT](https://github.com/LCTT/TranslateProject) 原创翻译，[Linux中国](http://linux.cn/) 荣誉推出
+
+[a]:http://linoxide.com/author/arunp/
+[1]:http://git-scm.com/
+[2]:http://gitblit.com/
