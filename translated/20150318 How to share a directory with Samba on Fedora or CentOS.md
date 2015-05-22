@@ -1,6 +1,6 @@
 如何在Fedora或CentOS上使用Samba共享文件夹
 ================================================================================
-如今，无论在家里或者是办公场所，不同的电脑之间共享文件夹并不是什么新鲜事了。在这种趋势下，现代操作系统通过网络文件系统的方式使电脑间数据的交换变得简单而透明。如果您工作的环境中既有微软的Windows，又有Linux，一个共享文件和目录的方式便是通过SMB/CIFS，一个跨平台网络文件共享协议。Windows天然的支持SMB/CIFS，Linux通过开源的软件Samba实现了SMB/CIFS协议。
+如今，无论在家里或者是办公场所，不同的电脑之间共享文件夹已不是什么新鲜事了。在这种趋势下，现代操作系统通过网络文件系统的方式使得电脑间数据的交换变得简单而透明。如果您工作的环境中既有微软的Windows又有Linux，那么，一个共享文件及目录的方式便是通过一个跨平台网络文件共享协议,SMB/CIFS。Windows天然的支持SMB/CIFS，Linux也通过开源的软件Samba实现了SMB/CIFS协议。
 
 在这篇文章中，我们将展示**如何使用Samba共享文件夹**。我们使用的Linux平台是**Fedora或CentOS**。这篇文章分为四部分。首先，我们在Fedora/CentOS环境下安装Sambe。接着，我们讨论如何调整SELinux和防火墙配置以允许Samba的文件共享。最后我们介绍如何使用Samba来共享文件夹。
 
@@ -26,7 +26,7 @@
 
     $ sudo chmod o+rw /shared 
 
-如果您不想其他用户对该文件夹拥有写权限，您需要移除下面命令中的'w'选项。
+如果您不想其他用户对该文件夹拥有写权限，您需要移除命令中的'w'选项。
 
     $ sudo chmod o+r /shared 
 
@@ -52,7 +52,7 @@
 
 ![](https://farm9.staticflickr.com/8584/16652774078_2055f45f70_b.jpg)
 
-为了通过Samba共享在我们home文件夹内的文件夹，我们必须在SELinux中开启共享home文件夹的选项，该选项默认被关闭。下面的命令能达到期望的效果。如果您并未共享您的home文件夹，那么您应跳过该步骤。
+为了通过Samba共享在我们home文件夹内的文件夹，我们必须在SELinux中开启共享home文件夹的选项，该选项默认被关闭。下面的命令能达到该效果。如果您并未共享您的home文件夹，那么您可以跳过该步骤。
 
     $ sudo setsebool -P samba_enable_home_dirs 1 
 
@@ -98,9 +98,9 @@
 
 上面在括号内的文本（例如，"myshare"）是Samba共享的资源的名字，它被用来从远程主机存取Samba共享。
 
-创建Samba用户帐户，这是挂载和导出Samba文件系统所必须的。我们可以使用smbpasswd工具来创建一个Samba用户。注意，Samba用户帐户必须是Linux用户管理中已存在。如果您尝试使用smbpasswd添加一个不存在的用户，它会返回一个错误的消息。
+创建Samba用户帐户，这是挂载和导出Samba文件系统所必须的。我们可以使用smbpasswd工具来创建一个Samba用户。注意，Samba用户帐户必须是Linux用户管理中已存在的。如果您尝试使用smbpasswd添加一个不存在的用户，它会返回一个错误的消息。
 
-如果您不想使用任何已存在的Linux用户作为Samba用户，您可以在您的系统中创建一个新的用户。为安全起见，设置新用户的登录脚本为/sbin/nologin，并且不要创建它的home文件夹。
+如果您不想使用任何已存在的Linux用户作为Samba用户，您可以在您的系统中创建一个新的用户。为安全起见，设置新用户的登录脚本为/sbin/nologin，并且不创建该用户的home文件夹。
 
 在这个例子中，我们正在创建一个名叫"sambaguest"的用户，如下：
 
@@ -127,7 +127,7 @@
 
 ![](https://farm8.staticflickr.com/7281/16220411103_06bf585901_b.jpg)
 
-接下来是在Thunar文件管理器中存取Samba共享文件夹的截图，对file1进行拷贝复制。注意，Samba的共享内容可以通过在Thunar中通过"smb://<samba-server-IP-address>/myshare"这个地址来存取。
+接下来是在Thunar文件管理器中存取Samba共享文件夹以及对file1进行拷贝复制的截图。注意，Samba的共享内容可以通过在Thunar中通过"smb://<samba-server-IP-address>/myshare"这个地址来存取。
 
 ![](https://farm8.staticflickr.com/7644/16218011174_c8b34fcedc_b.jpg)
 
