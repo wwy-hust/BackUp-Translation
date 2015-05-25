@@ -69,4 +69,125 @@
 ![处理两个或更多的参数](http://www.tecmint.com/wp-content/uploads/2015/05/5.gif)
 处理两个或更多的参数
 
-### 5.
+### 5.以关键字为基础执行上个的命令 ###
+
+我们可以以关键字为基础执行上次执行的命令。可以从下面的例子中理解：
+
+    $ ls /home > /dev/null						[命令1]
+    $ ls -l /home/avi/Desktop > /dev/null		                [命令2]	
+    $ ls -la /home/avi/Downloads > /dev/null	                [命令3]
+    $ ls -lA /usr/bin > /dev/null				        [命令4]
+
+上面我们使用了同样的命令（ls），但有不同的开关和不同的操作文件夹。而且，我们还将输出传递到‘/dev/null‘，我们并未处理输出，因而终端依旧很干净。
+
+现在以关键字为基础执行上个的命令。
+
+    $ ! ls					[Command 1]
+    $ ! ls -l				[Command 2]	
+    $ ! ls -la				[Command 3]
+    $ ! ls -lA				[Command 4]
+
+检查输出，您将惊奇发现您仅仅使用关键字`ls`便执行了您已经执行过的命令。
+
+![以关键字为基础执行命令](http://www.tecmint.com/wp-content/uploads/2015/05/6.gif)
+以关键字为基础执行命令
+
+### 6. !!操作符的威力 ###
+
+您可以使用`(!!)`运行/修改您上个运行的命令。它将附带一些修改/调整并调用上个命令。让我给您展示一些实际情境。
+
+昨天我运行了一行脚本来获得我的私密IP，因此我执行了：
+
+    $ ip addr show | grep inet | grep -v 'inet6'| grep -v '127.0.0.1' | awk '{print $2}' | cut -f1 -d/
+
+接着，我突然发现我需要将上面脚本的输出重定向到一个ip.txt的文件，因此，我改怎么办呢？我改重新输入整个命令并重定向到一个文件么？一个简单的解决方案是使用向上导航键并添加`'> ip.txt'`来将输出重定向到文件。
+
+    $ ip addr show | grep inet | grep -v 'inet6'| grep -v '127.0.0.1' | awk '{print $2}' | cut -f1 -d/ > ip.txt
+
+在这里感谢救世主向上导航键。现在，考虑下面的情况，这次我运行了下面这一行脚本。
+
+    $ ifconfig | grep "inet addr:" | awk '{print $2}' | grep -v '127.0.0.1' | cut -f2 -d:
+
+一旦我运行了这个脚本，Bash提示符便返回了错误消息`“bash: ifconfig: command not found”`。原因对我来说并不难猜，我运行了本应以root权限的运行的命令。
+
+所以，怎么解决呢？我们很难以root用户登录并且再次键入整个命令！而且向上导航键也不管用了。因此，我们需要调用`“!!”`（去掉引号），它将为那个用户调用上个命令。
+
+    $ su -c “!!” root
+
+这里su是用来切换到root用户的，`-c`用来以某用户运行特定的命令，最重要的部分是`!!`，它将被替换为上次运行的命令。对的！您需要提供root密码。
+
+![!!操作符的威力](http://www.tecmint.com/wp-content/uploads/2015/05/7.gif)
+!!操作符的威力
+
+我通常在下面的情景中使用`!!`。
+
+1.当我用普通用户来运行apt-get，我通常收到提示说我没有权限来执行。
+
+    $ apt-get upgrade && apt-get dist-upgrade
+
+好吧，有错误。但别担心，使用下面的命令来成功的执行...
+
+    $ su -c !!
+
+同样的适用于：
+
+    $ service apache2 start
+    或
+    $ /etc/init.d/apache2 start
+    或
+    $ systemctl start apache2
+
+普通用户不被授权执行那些任务，所以我运行：
+
+    $ su -c 'service apache2 start'
+    或
+    $ su -c '/etc/init.d/apache2 start'
+    或
+    $ su -c 'systemctl start apache2'
+
+### 7.运行一个影响所有除了![FILE_NAME]的文件命令 ###
+
+`!`（逻辑非）能用来对除了`'!'`后的文件的所有的文件/扩展执行命令。
+
+A.从文件夹移除所有文件，2.txt除外。
+
+    $ rm !(2.txt)
+
+B.从文件夹移除所有的文件类型，pdf类型除外。
+
+    $ rm !(*.pdf)
+
+### 8.检查某个文件夹（比如/home/avi/Tecmint）是否存在？并打印 ###
+
+这里，我们使用`'! -d'`来验证文件夹是否存在，当文件夹不存在时，将使用其后跟随AND操作符`(&&)`进行打印，当文件夹存在时，将使用OR操作符`(||)`进行打印。
+
+逻辑上，当`[ ! -d /home/avi/Tecmint ]`的输出为0时，它将执行AND逻辑符后面的内容，否则，它将执行OR逻辑符`(||)`后面的内容。
+
+    $ [ ! -d /home/avi/Tecmint ] && printf '\nno such /home/avi/Tecmint directory exist\n' || printf '\n/home/avi/Tecmint directory exist\n'
+
+### 9.检查某文件夹是否存在？如果不存在则退出该命令 ###
+
+类似于上面的情况，但这里当期望的文件夹不存在时，该命令会退出。
+
+    $ [ ! -d /home/avi/Tecmint ] && exit
+
+### 10.如果您的home文件夹内不存在一个文件夹（比方说test），则创建它 ###
+
+这是脚本语言中的一个常用的实现，当期望的文件夹不存在时，创建一个。
+
+    [ ! -d /home/avi/Tecmint ] && mkdir /home/avi/Tecmint
+
+这便是全部了。如果您知道或偶尔遇到其他值得了解的`'!'`使用方法，请您在反馈的地方给我们提建议。保持联系！
+
+--------------------------------------------------------------------------------
+
+via: http://www.tecmint.com/mysterious-uses-of-symbol-or-operator-in-linux-commands/
+
+作者：[Avishek Kumar][a]
+译者：[wwy-hust](https://github.com/wwy-hust)
+校对：[校对者ID](https://github.com/校对者ID)
+
+本文由 [LCTT](https://github.com/LCTT/TranslateProject) 原创翻译，[Linux中国](https://linux.cn/) 荣誉推出
+
+[a]:http://www.tecmint.com/author/avishek/
+[1]:http://www.tecmint.com/12-top-command-examples-in-linux/
