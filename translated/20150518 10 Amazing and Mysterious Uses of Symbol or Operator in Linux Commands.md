@@ -34,3 +34,39 @@
 
 ### 3.向最后的命令传递参数，以方便的运行新的命令 ###
 
+我需要显示'/home/$USER/Binary/firefox'文件夹的内容，因此我执行：
+
+    $ ls /home/$USER/Binary/firefox
+
+接下来，我意识到我应该执行'ls -l'来查看哪个文件是可执行文件。因此我应该重新输入整个命令么？不，我不需要。我仅需要在新的命令中带上最后的参数，类似：
+
+    $ ls -l !$
+
+这里`!$`将把最后执行的命令的参数传递到这个新的命令中。
+
+![将上一个命令的参数传递给新命令](http://www.tecmint.com/wp-content/uploads/2015/05/4.gif)
+将上一个命令的参数传递给新命令
+
+### 4.如何使用!来处理两个或更多的参数 ###
+
+比如说我在桌面创建了一个文本文件file1.txt。
+
+    $ touch /home/avi/Desktop/1.txt
+
+然后在cp命令中使用绝对路径将它拷贝到'/home/avi/Downloads'。
+
+    $ cp /home/avi/Desktop/1.txt /home/avi/downloads
+
+现在，我们给cp命令传递了两个参数。第一个是'/home/avi/Desktop/1.txt'，第二个是'/home/avi/Downloads'。让我们分别处理他们，使用`echo [arguments]`来打印两个不同的参数。
+
+    $ echo “1st Argument is : !^”
+    $ echo “2nd Argument is : !cp:2”
+
+注意第一个参数可以使用`“!^”`进行打印，其余的命令可以通过`“![命令编号]:[参数编号]”`打印。
+
+在上面的例子中，第一个命令是‘cp‘，第二个参数也需要被打印。因此是`“!cp:2”`，如果任何命令比如xyz运行时有5个参数，而您需要获得第四个参数，您可以使用`“!xyz:4”`。所有的参数都可以通过`“!*”`来获得。
+
+![处理两个或更多的参数](http://www.tecmint.com/wp-content/uploads/2015/05/5.gif)
+处理两个或更多的参数
+
+### 5.
