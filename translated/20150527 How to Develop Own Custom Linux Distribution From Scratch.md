@@ -40,3 +40,27 @@
 
 ### 关于：Linux From Scratch ###
 
+这本书是由LFS的项目领头人Gerard Beekmans创作的，由Matthew Burgess和Bruse Dubbs做编辑，两人都是LFS项目的联合领导人。这本书内容广泛，有338页。
+
+书中内容包括：介绍LFS、准备构建、构建Linux（LFS）、建立启动脚本、使LFS可以引导以及附录。其中涵盖了您想知道的LFS项目的所有东西。
+
+这本书还给出了编译一个包的预估时间。预估的时间以编译第一个包的时间作为参考。所有的东西都以易于理解的方式呈现，包括对于新手来说。
+
+如果您有充裕的时间并且真正对构建自己的Linux发行版感兴趣，那么您绝对不会错过下载这个电子书（免费下载）的机会。您需要做的，便是照着这本书在一个工作的Linux系统（任何Linux发行版，足够的磁盘空间即可）中开始构建您自己的Linux系统，时间和热情。
+
+如果Linux使您着迷，如果您想自己动手构建一个自己的Linux发行版，这便是现阶段您应该知道的全部了，其他的信息您可以参考上面链接的书中的内容。
+
+请让我了解您阅读/使用这本书的经历，用它作为指南在制作LFS时有多简单？如果您已经构建了一个LFS并且想给我们的读者一些建议，欢迎留言和反馈。
+
+--------------------------------------------------------------------------------
+
+via: http://www.tecmint.com/create-custom-linux-distribution-from-scratch/
+
+作者：[Avishek Kumar][a]
+译者：[wwy-hust](https://github.com/wwy-hust)
+校对：[校对者ID](https://github.com/校对者ID)
+
+本文由 [LCTT](https://github.com/LCTT/TranslateProject) 原创翻译，[Linux中国](https://linux.cn/) 荣誉推出
+
+[a]:http://www.tecmint.com/author/avishek/
+[1]:http://tecmint.tradepub.com/free/w_linu01/prgm.cgi
