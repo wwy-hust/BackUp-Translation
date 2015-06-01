@@ -36,7 +36,7 @@ DNF致力于改善YUM的瓶颈，即性能、内存占用、依赖解决、速度和许多其他方面。DNF使用R
 
     # dnf --version
 
-![Check DNF Version](http://www.tecmint.com/wp-content/uploads/2015/05/Check-DNF-Version.gif)
+![检查DNF版本](http://www.tecmint.com/wp-content/uploads/2015/05/Check-DNF-Version.gif)
 
 ### 2. 列出开启的DNF仓库 ###
 
@@ -44,7 +44,7 @@ dnf命令中的'repolist'选项将显示您系统中所有开启的仓库。
 
     # dnf repolist
 
-![Check All Enabled Repositories](http://www.tecmint.com/wp-content/uploads/2015/05/Check-All-Enabled-Repositories.gif)
+![检查所有开启的仓库](http://www.tecmint.com/wp-content/uploads/2015/05/Check-All-Enabled-Repositories.gif)
 
 ### 3. 列出所有开启和关闭的DNF仓库 ###
 
@@ -52,7 +52,7 @@ dnf命令中的'repolist'选项将显示您系统中所有开启的仓库。
 
     # dnf repolist all
 
-![List All Enabled/Disabled Repositories](http://www.tecmint.com/wp-content/uploads/2015/05/Check-All-Repositories.gif)
+![列出所有开启/关闭的仓库](http://www.tecmint.com/wp-content/uploads/2015/05/Check-All-Repositories.gif)
 
 ### 4. 用DNF列出所有可用的且已安装的软件包 ###
 
@@ -162,4 +162,126 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
 
 ![Remove DNF Cache](http://www.tecmint.com/wp-content/uploads/2015/05/Remove-Cache-Packages.gif)
 
-### 17. Get Help on Specific DNF Command ###
+### 17. 获得特定DNF命令的帮助 ###
+
+您可能需要特定的DNF命令的帮助（例如，clean），可以通过下面的命令来得到：
+
+    # dnf help clean
+
+![Get DNF Command Help](http://www.tecmint.com/wp-content/uploads/2015/05/Help-on-DNF-Command.gif)
+
+### 18. 列出所有DNF的命令和选项 ###
+
+要显示所有dnf的命令和选项，只需要：
+
+    # dnf help
+
+![Get Help on DNF Options](http://www.tecmint.com/wp-content/uploads/2015/05/DNF-Options.gif)
+
+### 19. 查看DNF的历史记录 ###
+
+您可以调用'dnf history'来查看已经执行过的dnf命令的列表。这样您便可以知道什么被安装/移除以及时间戳。
+
+    # dnf history
+
+![Check DNF History](http://www.tecmint.com/wp-content/uploads/2015/05/Check-DNF-History.gif)
+
+### 20. 显示所有软件包组 ###
+
+'dnf grouplist'命令可以打印所有可用的或已安装的软件包，如果没有什么输出，则它会列出所有已知的软件包组。
+
+    # dnf grouplist
+
+![List All Group Packages](http://www.tecmint.com/wp-content/uploads/2015/05/List-All-Group-Packages.gif)
+
+### 21. 使用DNF安装一个软件包组 ###
+
+要安装一组由许多软件打包在一起的软件包组（例如，Educational Softaware），只需要执行：
+
+    # dnf groupinstall 'Educational Software'
+
+![Install Group Packages](http://www.tecmint.com/wp-content/uploads/2015/05/Install-Group-Packages.gif)
+
+### 22. 更新一个软件包组 ###
+
+可以通过下面的命令来更新一个软件包组（例如，Educational Software）：
+
+    # dnf groupupdate 'Educational Software'
+
+![Update Group Package](http://www.tecmint.com/wp-content/uploads/2015/05/Update-Group-Package.gif)
+
+### 23. 移除一个软件包组 ###
+
+可以使用下面的命令来移除一个软件包组（例如，Educational Software）：
+
+    # dnf groupremove 'Educational Software'
+
+![Remove Group Package](http://www.tecmint.com/wp-content/uploads/2015/05/Remove-Group-Package.gif)
+
+### 24. 从某个特定的仓库安装一个软件包 ###
+
+DNF可以从任何特定的仓库安装一个软件包（例如，phpmyadmin）：
+
+    # dnf --enablerepo=epel install phpmyadmin
+
+![Install Package From Specific Repo](http://www.tecmint.com/wp-content/uploads/2015/05/Install-Package-From-Specific-Repo.gif)
+
+### 25. 将已安装的软件包同步到稳定发行版 ###
+
+'dnf distro-sync'将同步所有已安装的软件包到所有开启的仓库中最近的稳定版本。如果没有软件包被选择，则会同步所有已安装的软件包。
+
+    # dnf distro-sync
+
+![Synchronize Packages to Stable Version](http://www.tecmint.com/wp-content/uploads/2015/05/Synchronize-Packages.gif)
+
+### 26. 重新安装一个软件包 ###
+
+'dnf reinstall nano'命令将重新安装一个已经安装的软件包（例如，nano）：
+
+    # dnf reinstall nano
+
+![ReInstall Package](http://www.tecmint.com/wp-content/uploads/2015/05/Re-Install-Package.gif)
+
+### 27. 降级一个软件包 ###
+
+选项'downgrade'将会使一个软件包（例如，acpid）回退到低版本。
+
+    # dnf downgrade acpid
+
+示例输出
+
+    Using metadata from Wed May 20 12:44:59 2015
+    No match for available package: acpid-2.0.19-5.el7.x86_64
+    Error: Nothing to do.
+
+**我的观察**：dnf不会按预想的那样降级一个软件包。这已做为一个bug被提交。
+
+### 结论 ###
+
+DNF是YUM管理器的优秀替代品。它倾向于自动做许多有经验的Linux系统管理员不建议做的工作。例如：
+
+- `--skip-broken`不被DNF识别，并且DNF中没有其替代命令。
+- 尽管您可能会运行dnf provides，但再也没有'resolvedep'命令了。
+- 没有'deplist'命令用来发现软件包依赖。
+- 您排除一个仓库意味着在所有操作上排除该仓库，而在yum中，排除一个仓库只在安装和升级等时刻排除他们。
+
+许多Linux用户对于Linux生态系统的走向不甚满意。首先[Systemd替换了init system][3]v，现在DNF将于不久后替换YUM，首先是Fedora 22，接下来是RHEL和CentOS。
+
+您怎么看呢？是不是发行版和整个Linux生态系统并不注重用户并且在朝着与用户愿望相悖的方向前进呢？IT行业里有这样一句话 - “如果没有坏，为什么要修呢？”，System V和YUM都没有坏。
+
+上面便是这篇文章的全部了。请在下方留言以让我了解您的宝贵想法。点赞和分享以帮助我们传播。谢谢！
+
+--------------------------------------------------------------------------------
+
+via: http://www.tecmint.com/dnf-commands-for-fedora-rpm-package-management/
+
+作者：[Avishek Kumar][a]
+译者：[wwy-hust](https://github.com/wwy-hust)
+校对：[校对者ID](https://github.com/校对者ID)
+
+本文由 [LCTT](https://github.com/LCTT/TranslateProject) 原创翻译，[Linux中国](https://linux.cn/) 荣誉推出
+
+[a]:http://www.tecmint.com/author/avishek/
+[1]:http://www.tecmint.com/20-linux-yum-yellowdog-updater-modified-commands-for-package-mangement/
+[2]:http://www.tecmint.com/dnf-next-generation-package-management-utility-for-linux/
+[3]:http://www.tecmint.com/systemd-replaces-init-in-linux/
