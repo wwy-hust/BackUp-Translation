@@ -60,7 +60,7 @@ dnf命令中的'repolist'选项将显示您系统中所有开启的仓库。
 
     # dnf list
 
-![List All Packages using DNF](http://www.tecmint.com/wp-content/uploads/2015/05/List-All-Packages.png)
+![用DNF列出所有的软件包](http://www.tecmint.com/wp-content/uploads/2015/05/List-All-Packages.png)
 
 ### 5. 用DNF列出所有已安装的软件包 ###
 
@@ -68,7 +68,7 @@ dnf命令中的'repolist'选项将显示您系统中所有开启的仓库。
 
     # dnf list installed
 
-![List All Installed Packages](http://www.tecmint.com/wp-content/uploads/2015/05/List-Installed-Packages.png)
+![列出已安装的软件包](http://www.tecmint.com/wp-content/uploads/2015/05/List-Installed-Packages.png)
 
 ### 6. 用DNF列出所有可用的软件包 ###
 
@@ -76,7 +76,7 @@ dnf命令中的'repolist'选项将显示您系统中所有开启的仓库。
 
     # dnf list available
 
-![List Available Packages using DNF](http://www.tecmint.com/wp-content/uploads/2015/05/List-Available-Packages.png)
+![用DNF列出可用的软件包](http://www.tecmint.com/wp-content/uploads/2015/05/List-Available-Packages.png)
 
 ### 7. 使用DNF查找软件包 ###
 
@@ -84,7 +84,7 @@ dnf命令中的'repolist'选项将显示您系统中所有开启的仓库。
 
     # dnf search nano
 
-![Search Package by Word](http://www.tecmint.com/wp-content/uploads/2015/05/Search-Package.gif)
+![通过关键字搜索软件包](http://www.tecmint.com/wp-content/uploads/2015/05/Search-Package.gif)
 
 ### 8. 查看哪个软件包提供了某个文件/子软件软件包？ ###
 
@@ -92,7 +92,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
 
     # dnf provides /bin/bash
 
-![Find File Sub Package](http://www.tecmint.com/wp-content/uploads/2015/05/Find-Package-Sub-Package.gif)
+![查找提供文件的软件包](http://www.tecmint.com/wp-content/uploads/2015/05/Find-Package-Sub-Package.gif)
 
 ### 9. 使用DNF获得一个软件包的详细信息 ###
 
@@ -100,7 +100,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
 
     # dnf info nano
 
-![Check Package Information with DNF](http://www.tecmint.com/wp-content/uploads/2015/05/Check-Package-Information.gif)
+![用DNF查看软件信息](http://www.tecmint.com/wp-content/uploads/2015/05/Check-Package-Information.gif)
 
 ### 10. 使用DNF安装软件包 ###
 
@@ -108,7 +108,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
 
     # dnf install nano
 
-![Install Package using DNF](http://www.tecmint.com/wp-content/uploads/2015/05/Install-Package-DNF.gif)
+![用DNF安装软件](http://www.tecmint.com/wp-content/uploads/2015/05/Install-Package-DNF.gif)
 
 ### 11. 使用DNF更新一个软件包 ###
 
@@ -116,7 +116,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
 
     # dnf update systemd
 
-![Update a Specific Package](http://www.tecmint.com/wp-content/uploads/2015/05/Update-a-Package.gif)
+![更新一个软件包](http://www.tecmint.com/wp-content/uploads/2015/05/Update-a-Package.gif)
 
 ### 12. 使用DNF检查系统更新 ###
 
@@ -124,7 +124,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
 
     # dnf check-update
 
-![Check For System Update](http://www.tecmint.com/wp-content/uploads/2015/05/Check-For-System-Update.gif)
+![检查系统更新](http://www.tecmint.com/wp-content/uploads/2015/05/Check-For-System-Update.gif)
 
 ### 13. 使用DNF安装系统中所有的软件包 ###
 
@@ -134,7 +134,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
     或
     # dnf upgrade
 
-![Update System](http://www.tecmint.com/wp-content/uploads/2015/05/Update-System.gif)
+![更新系统](http://www.tecmint.com/wp-content/uploads/2015/05/Update-System.gif)
 
 ### 14. 使用DNF来移除/删除一个软件包 ###
 
@@ -144,7 +144,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
     或
     # dnf erase nano
 
-![Remove Package in Linux](http://www.tecmint.com/wp-content/uploads/2015/05/Remove-Package.gif)
+![移除系统中的软件](http://www.tecmint.com/wp-content/uploads/2015/05/Remove-Package.gif)
 
 ### 15. 使用DNF移除于依赖无用的软件包（Orphan Packages） ###
 
@@ -152,7 +152,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
 
     # dnf autoremove
 
-![Remove Orphan Packages](http://www.tecmint.com/wp-content/uploads/2015/05/Autoremove-Packages.gif)
+![移除无用的依赖包](http://www.tecmint.com/wp-content/uploads/2015/05/Autoremove-Packages.gif)
 
 ### 16. 使用DNF移除缓存的软件包 ###
 
@@ -160,7 +160,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
 
     # dnf clean all
 
-![Remove DNF Cache](http://www.tecmint.com/wp-content/uploads/2015/05/Remove-Cache-Packages.gif)
+![移除DNF缓存](http://www.tecmint.com/wp-content/uploads/2015/05/Remove-Cache-Packages.gif)
 
 ### 17. 获得特定DNF命令的帮助 ###
 
@@ -168,7 +168,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
 
     # dnf help clean
 
-![Get DNF Command Help](http://www.tecmint.com/wp-content/uploads/2015/05/Help-on-DNF-Command.gif)
+![获得某一命令帮助](http://www.tecmint.com/wp-content/uploads/2015/05/Help-on-DNF-Command.gif)
 
 ### 18. 列出所有DNF的命令和选项 ###
 
@@ -176,7 +176,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
 
     # dnf help
 
-![Get Help on DNF Options](http://www.tecmint.com/wp-content/uploads/2015/05/DNF-Options.gif)
+![获得命令选项帮助](http://www.tecmint.com/wp-content/uploads/2015/05/DNF-Options.gif)
 
 ### 19. 查看DNF的历史记录 ###
 
@@ -184,7 +184,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
 
     # dnf history
 
-![Check DNF History](http://www.tecmint.com/wp-content/uploads/2015/05/Check-DNF-History.gif)
+![查看历史记录](http://www.tecmint.com/wp-content/uploads/2015/05/Check-DNF-History.gif)
 
 ### 20. 显示所有软件包组 ###
 
@@ -192,7 +192,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
 
     # dnf grouplist
 
-![List All Group Packages](http://www.tecmint.com/wp-content/uploads/2015/05/List-All-Group-Packages.gif)
+![列出所有软件包组](http://www.tecmint.com/wp-content/uploads/2015/05/List-All-Group-Packages.gif)
 
 ### 21. 使用DNF安装一个软件包组 ###
 
@@ -200,7 +200,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
 
     # dnf groupinstall 'Educational Software'
 
-![Install Group Packages](http://www.tecmint.com/wp-content/uploads/2015/05/Install-Group-Packages.gif)
+![安装一个软件包组](http://www.tecmint.com/wp-content/uploads/2015/05/Install-Group-Packages.gif)
 
 ### 22. 更新一个软件包组 ###
 
@@ -208,7 +208,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
 
     # dnf groupupdate 'Educational Software'
 
-![Update Group Package](http://www.tecmint.com/wp-content/uploads/2015/05/Update-Group-Package.gif)
+![更新软件包组](http://www.tecmint.com/wp-content/uploads/2015/05/Update-Group-Package.gif)
 
 ### 23. 移除一个软件包组 ###
 
@@ -216,7 +216,7 @@ dnf的选项'provides'能查找提供了某个文件/子软件包的软件包名。例如，如果您想找找那
 
     # dnf groupremove 'Educational Software'
 
-![Remove Group Package](http://www.tecmint.com/wp-content/uploads/2015/05/Remove-Group-Package.gif)
+![移除软件包组](http://www.tecmint.com/wp-content/uploads/2015/05/Remove-Group-Package.gif)
 
 ### 24. 从某个特定的仓库安装一个软件包 ###
 
@@ -224,7 +224,7 @@ DNF可以从任何特定的仓库安装一个软件包（例如，phpmyadmin）：
 
     # dnf --enablerepo=epel install phpmyadmin
 
-![Install Package From Specific Repo](http://www.tecmint.com/wp-content/uploads/2015/05/Install-Package-From-Specific-Repo.gif)
+![从特定的仓库安装软件](http://www.tecmint.com/wp-content/uploads/2015/05/Install-Package-From-Specific-Repo.gif)
 
 ### 25. 将已安装的软件包同步到稳定发行版 ###
 
@@ -232,7 +232,7 @@ DNF可以从任何特定的仓库安装一个软件包（例如，phpmyadmin）：
 
     # dnf distro-sync
 
-![Synchronize Packages to Stable Version](http://www.tecmint.com/wp-content/uploads/2015/05/Synchronize-Packages.gif)
+![将包同步至稳定版](http://www.tecmint.com/wp-content/uploads/2015/05/Synchronize-Packages.gif)
 
 ### 26. 重新安装一个软件包 ###
 
@@ -240,7 +240,7 @@ DNF可以从任何特定的仓库安装一个软件包（例如，phpmyadmin）：
 
     # dnf reinstall nano
 
-![ReInstall Package](http://www.tecmint.com/wp-content/uploads/2015/05/Re-Install-Package.gif)
+![重新安装软件包](http://www.tecmint.com/wp-content/uploads/2015/05/Re-Install-Package.gif)
 
 ### 27. 降级一个软件包 ###
 
