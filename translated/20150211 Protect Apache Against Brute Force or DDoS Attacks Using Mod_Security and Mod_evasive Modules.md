@@ -176,15 +176,15 @@ mod_evasive被配置为使用/etc/httpd/conf.d/mod_evasive.conf中的指令。�
 当一个IP地址被加入黑名单，我们需要阻挡它进一步的连接。我们需要下面的shell脚本来执行这个任务。在/usr/local/bin下创建一个叫做scripts-tecmint的文件夹（或其他的名字），以及一个叫做ban_ip.sh的文件。
 
     #!/bin/sh
-    # IP that will be blocked, as detected by mod_evasive
+    # 由mod_evasive检测出，将被阻挡的IP地址
     IP=$1
-    # Full path to iptables
+    # iptables的完整路径
     IPTABLES="/sbin/iptables"
-    # mod_evasive lock directory
+    # mod_evasive锁文件夹
     MOD_EVASIVE_LOGDIR=/var/log/mod_evasive
-    # Add the following firewall rule (block all traffic coming from $IP)
+    # 添加下面的防火墙规则 (阻止所有从$IP流入的流量)
     $IPTABLES -I INPUT -s $IP -j DROP
-    # Remove lock file for future checks
+    # 为了未来的检测，移除锁文件
     rm -f "$MOD_EVASIVE_LOGDIR"/dos-"$IP"
 
 我们的DOSSystemCommand指令应该是这样的：
@@ -242,8 +242,30 @@ mod_evasive被配置为使用/etc/httpd/conf.d/mod_evasive.conf中的指令。�
 
 ### 结论 ###
 
+在开启mod_security和mod_evasive的情况下，模拟攻击会导致CPU和RAM用量在源IP地址被假如防火墙之前出现短暂几秒的使用峰值。如果没有这些模块，模拟攻击绝对会很快将服务器击溃，并在攻击期间无法提供服务。
 
+我们很高兴听见您打算使用（或已经使用过）这些工具。我们期望得到您的反馈，所以，请在留言处留下您的评价和问题，谢谢！
 
+### 参考链接 ###
 
+- [https://www.modsecurity.org/][6]
+- [http://www.zdziarski.com/blog/?page_id=442][7]
 
+--------------------------------------------------------------------------------
 
+via: http://www.tecmint.com/protect-apache-using-mod_security-and-mod_evasive-on-rhel-centos-fedora/
+
+作者：[Gabriel Cánepa][a]
+译者：[wwy-hust](https://github.com/wwy-hust)
+校对：[校对者ID](https://github.com/校对者ID)
+
+本文由 [LCTT](https://github.com/LCTT/TranslateProject) 原创翻译，[Linux中国](http://linux.cn/) 荣誉推出
+
+[a]:http://www.tecmint.com/author/gacanepa/
+[1]:http://www.tecmint.com/install-lamp-in-centos-7/
+[2]:http://www.tecmint.com/configure-firewalld-in-centos-7/
+[3]:http://www.tecmint.com/how-to-enable-epel-repository-for-rhel-centos-6-5/
+[4]:https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project
+[5]:https://github.com/SpiderLabs/ModSecurity/wiki/Reference-Manual#Configuration_Directives
+[6]:https://www.modsecurity.org/
+[7]:http://www.zdziarski.com/blog/?page_id=442
