@@ -141,6 +141,109 @@ mod_evasive被配置为使用/etc/httpd/conf.d/mod_evasive.conf中的指令。�
 这些指令的解释：
 
 - DOSHashTableSize: 这个指令指明了哈希表的大小，它用来追踪基于IP地址的活动。增加这个数字将使查询站点访问历史变得更快，但如果被设置的太高则会影响整体性能。
-- DOSPageCount: Legitimate number of identical requests to a specific URI (for example, any file that is being served by Apache) that can be made by a visitor over the DOSPageInterval interval.
-- DOSSiteCount: Similar to DOSPageCount, but refers to how many overall requests can be made to the entire site over the DOSSiteInterval interval.
-- DOSBlockingPeriod: If a visitor exceeds the limits set by DOSSPageCount or DOSSiteCount, his source IP address will be blacklisted during the DOSBlockingPeriod amount of time. During DOSBlockingPeriod, any requests coming from that IP address will encounter a 403 Forbidden error.
+- DOSPageCount: 在DOSPageInterval间可由一个用户发起的面向特定的URI（例如，一个Apache托管的文件）的同一个请求的数量。
+- DOSSiteCount: 类似DOSPageCount，但涉及到整个站点总共有多少的请求可以在DOSSiteInterval间隔间被发起。
+- DOSBlockingPeriod: 如果一个用户超过了DOSSPageCount的限制或者DOSSiteCount，他的源IP地址将会在DOSBlockingPeriod期间内被加入黑名单。在DOSBlockingPeriod期间，任何从这个IP地址发起的请求将会遭遇一个403禁止错误。
+
+尽可能的实验这些值，以便您的web服务器有能力处理需要大小的负载。
+
+**一个小警告**: 如果这些值设置的不合适，则您会蒙受阻挡合法用户的风险。
+
+您也许想考虑下其他有用的指令：
+
+#### DOSEmailNotify ####
+
+如果您运行有一个邮件服务器，您可以通过Apache发送警告消息。注意，如果SELinux已开启，您需要授权apache用户SELinux权限来发送email。您可以通过下面的命令来授予权限：
+
+    # setsebool -P httpd_can_sendmail 1
+
+接下来，将这个指令和其他指令一起加入到mod_evasive.conf文件。
+
+    DOSEmailNotify you@yourdomain.com
+
+如果这个值被合适的设置并且您的邮件服务器在正常的运行，当一个IP地址被加入黑名单时，将会有一封邮件被发送到相应的地址。
+
+#### DOSSystemCommand ####
+
+它需要一个有效的系统命令作为参数，
+
+    DOSSystemCommand </command>
+
+这个指令指定当一个IP地址被加入黑名单时执行的命令。它通常结合shell脚本来使用，在脚本中添加一条防火墙规则来阻挡某个IP进一步的连接。
+
+**写一个shell脚本在防火墙阶段处理IP黑名单**
+
+当一个IP地址被加入黑名单，我们需要阻挡它进一步的连接。我们需要下面的shell脚本来执行这个任务。在/usr/local/bin下创建一个叫做scripts-tecmint的文件夹（或其他的名字），以及一个叫做ban_ip.sh的文件。
+
+    #!/bin/sh
+    # IP that will be blocked, as detected by mod_evasive
+    IP=$1
+    # Full path to iptables
+    IPTABLES="/sbin/iptables"
+    # mod_evasive lock directory
+    MOD_EVASIVE_LOGDIR=/var/log/mod_evasive
+    # Add the following firewall rule (block all traffic coming from $IP)
+    $IPTABLES -I INPUT -s $IP -j DROP
+    # Remove lock file for future checks
+    rm -f "$MOD_EVASIVE_LOGDIR"/dos-"$IP"
+
+我们的DOSSystemCommand指令应该是这样的：
+
+    DOSSystemCommand "sudo /usr/local/bin/scripts-tecmint/ban_ip.sh %s"
+
+上面一行的%s代表了由mod_evasive检测到的攻击IP地址。
+
+**将apache用户添加到sudoers文件**
+
+请注意，如果您不给予apache用户以无需终端和密码的方式运行我们脚本（关键就是这个脚本）的权限，则这一切都不起作用。通常，您只需要以root权限键入visudo来存取/etc/sudoers文件，接下来添加下面的两行即可：
+
+    apache ALL=NOPASSWD: /usr/local/bin/scripts-tecmint/ban_ip.sh
+    Defaults:apache !requiretty
+
+![](http://www.tecmint.com/wp-content/uploads/2012/06/Add-Apache-User-to-Sudoers.png)
+添加Apache用户到Sudoers
+
+**重要**: 作为默认的安全策略，您只能在终端中运行sudo。由于这个时候我们需要在没有tty的时候运行sudo，我们像下面图片中那样必须注释掉下面这一行：
+
+    #Defaults requiretty
+
+![](http://www.tecmint.com/wp-content/uploads/2012/06/Disable-tty-for-Sudo.png)
+为Sudo禁用tty
+
+最后，重启web服务器：
+
+    # service httpd restart 		[在RHEL/CentOS 6和Fedora 20-18上]
+    # systemctl restart httpd 		[在RHEL/CentOS 7和Fedora 21上]
+
+### 步骤4: 在Apache上模拟DDos攻击 ###
+
+有许多工具可以在您的服务器上模拟外部的攻击。您可以google下“tools for simulating ddos attacks”来找一找相关的工具。
+
+注意，您（也只有您）将负责您模拟所造成的结果。请不要考虑向不在您网络中的服务器发起模拟攻击。
+
+假如您想对一个由别人托管的VPS做这些事情，您需要向您的托管上发送适当的警告或就那样的流量通过他们的网络获得允许。Tecmint.com不会为您的行为负责！
+
+另外，近从一个主机发起一个Dos攻击的模拟无法代表真实的攻击。为了模拟真实的攻击，您需要作为许多客户端在同一时间将您的服务器作为目标。
+
+我们的测试环境由一个CentOS 7服务器[IP 192.168.0.17]和一个Windows组成，在Windows[IP 192.168.0.103]上我们发起攻击：
+
+![](http://www.tecmint.com/wp-content/uploads/2012/06/Confirm-Host-IPAddress.png)
+确认主机IP地址
+
+请播放下面的视频，并跟从列出的步骤来模拟一个Dos攻击：
+
+注：youtube视频，发布的时候不行做个链接吧
+<iframe width="640" height="405" frameborder="0" allowfullscreen="allowfullscreen" src="https://www.youtube.com/embed/-U_mdet06Jk"></iframe>
+
+然后攻击者的IP将被iptables阻挡:
+
+![](http://www.tecmint.com/wp-content/uploads/2012/06/Blocked-Attacker-IP.png)
+阻挡攻击者的IP地址
+
+### 结论 ###
+
+
+
+
+
+
