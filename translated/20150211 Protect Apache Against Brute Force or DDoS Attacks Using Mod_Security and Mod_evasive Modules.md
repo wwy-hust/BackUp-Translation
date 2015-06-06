@@ -1,8 +1,8 @@
 ﻿在Apache中使用Mod_Security和Mod_evasive来抵御暴力破解和DDos攻击
 ================================================================================
-对于那些托管主机或者将您的主机暴露在因特网中的人来说，保证您的系统在面对攻击者时安全是一个重要的事情。
+对于那些托管主机或者需要将您的主机暴露在因特网中的人来说，保证您的系统在面对攻击时安全是一个重要的事情。
 
-mod_security（一个可以无缝接入Web服务器的开源的用于Web应用入侵检测和防护的引擎）和mod_evasive是两个在服务器端对抗暴力破解和(D)Dos攻击的非常重要的工具。
+mod_security（一个开源的可以无缝接入Web服务器的用于Web应用入侵检测和防护的引擎）和mod_evasive是两个在服务器端对抗暴力破解和(D)Dos攻击的非常重要的工具。
 
 mod_evasive，如它的名字一样，在受攻击时提供避实就虚的功能，它像一个雨伞一样保护Web服务器免受那些威胁。
 
@@ -10,13 +10,13 @@ mod_evasive，如它的名字一样，在受攻击时提供避实就虚的功能
 
 安装Mod_Security和Mod_Evasive来保护Apache
 
-在这篇文章中我们将讨论如何安装、配置以及在RHEL/CentOS6、7和Fedora 21-15上将它们结合到Apache。另外，我们会模拟攻击以便验证服务器进行了正确的反应。
+在这篇文章中我们将讨论如何安装、配置以及在RHEL/CentOS6、7和Fedora 21-15上将它们整合到Apache。另外，我们会模拟攻击以便验证服务器做出了正确的反应。
 
-这以您的系统中安装有LAMP服务器为基础，所以，如果您没有安装，请先阅读下面链接的文章再开始阅读本文。
+以上以您的系统中安装有LAMP服务器为基础，所以，如果您没有安装，请先阅读下面链接的文章再开始阅读本文。
 
-- [在RHEL/CentOS 7中安装LAMP堆栈][1]
+- [在RHEL/CentOS 7中安装LAMP][1]
 
-如果您在运行RHEL/CentOS 7或Fedora 21，您还需要安装iptables作为默认[防火墙][2]前端以取代firewalld。这样做时为了在RHEL/CentOS 7或Fedora 21中使用同样的工具。
+如果您在运行RHEL/CentOS 7或Fedora 21，您还需要安装iptables作为默认[防火墙][2]前端以取代firewalld。这样做是为了在RHEL/CentOS 7或Fedora 21中使用同样的工具。
 
 ### 步骤 1: 在RHEL/CentOS 7和Fedora 21上安装Iptables防火墙 ###
 
@@ -51,7 +51,7 @@ mod_evasive，如它的名字一样，在受攻击时提供避实就虚的功能
 ![](http://www.tecmint.com/wp-content/uploads/2012/06/mod_security-mod_evasive-Configurations.png)
 mod_security + mod_evasive 配置文件
 
-现在，为了整合这两个模块到Apache，并在启动时将它们加载。请确保下面几行出现在mod_evasive.conf和mod_security.conf的顶层部分，它们分别为：
+现在，为了整合这两个模块到Apache，并在启动时加载它们。请确保下面几行出现在mod_evasive.conf和mod_security.conf的顶层部分，它们分别为：
 
     LoadModule evasive20_module modules/mod_evasive24.so
     LoadModule security2_module modules/mod_security2.so
@@ -74,14 +74,14 @@ mod_security + mod_evasive 配置文件
 
     [输出已加载的静态模块和动态模块列表]
 
-    # httpd -M | grep -Ei '(evasive|security)'	
+    # httpd -M | grep -Ei '(evasive|security)'
     
 ![](http://www.tecmint.com/wp-content/uploads/2012/06/Check-mod_security-mod_evasive-Loaded.png)
 检查mod_security + mod_evasive模块已加载
 
 ### 步骤 3: 安装一个核心规则集并且配置Mod_Security ###
 
-简单来说，一个核心规则集（即CRS）为web服务器提供特定状况下如何反应的指令。mod_security的开发者们提供了一个免费的CRS，叫做OWASP（[开放Web应用安全项目]）ModSecurity CRS，它能在下面的地址被下载和安装。
+简单来说，一个核心规则集（即CRS）为web服务器提供特定状况下如何反应的指令。mod_security的开发者们提供了一个免费的CRS，叫做OWASP（[开放Web应用安全项目]）ModSecurity CRS，可以从下面的地址下载和安装。
 
 1. 下载OWASP CRS到为之创建的目录
 
@@ -127,7 +127,7 @@ mod_security + mod_evasive 配置文件
 
 mod_evasive被配置为使用/etc/httpd/conf.d/mod_evasive.conf中的指令。与mod_security不同，由于在包升级时没有规则来更新，因此我们不需要独立的文件来添加自定义指令。
 
-默认的mod_evasive.conf开启了下列的目录（注意这个文件被详细的注释了，因此我们剃掉了注释以重点显示配置指令）：
+默认的mod_evasive.conf开启了下列的目录（注意这个文件被详细的注释了，因此我们剔掉了注释以重点显示配置指令）：
 
     <IfModule mod_evasive24.c>
         DOSHashTableSize    3097
@@ -141,11 +141,11 @@ mod_evasive被配置为使用/etc/httpd/conf.d/mod_evasive.conf中的指令。�
 这些指令的解释：
 
 - DOSHashTableSize: 这个指令指明了哈希表的大小，它用来追踪基于IP地址的活动。增加这个数字将使查询站点访问历史变得更快，但如果被设置的太高则会影响整体性能。
-- DOSPageCount: 在DOSPageInterval间可由一个用户发起的面向特定的URI（例如，一个Apache托管的文件）的同一个请求的数量。
-- DOSSiteCount: 类似DOSPageCount，但涉及到整个站点总共有多少的请求可以在DOSSiteInterval间隔间被发起。
+- DOSPageCount: 在DOSPageInterval间隔内可由一个用户发起的面向特定的URI（例如，一个Apache托管的文件）的同一个请求的数量。
+- DOSSiteCount: 类似DOSPageCount，但涉及到整个站点总共有多少的请求可以在DOSSiteInterval间隔内被发起。
 - DOSBlockingPeriod: 如果一个用户超过了DOSSPageCount的限制或者DOSSiteCount，他的源IP地址将会在DOSBlockingPeriod期间内被加入黑名单。在DOSBlockingPeriod期间，任何从这个IP地址发起的请求将会遭遇一个403禁止错误。
 
-尽可能的实验这些值，以便您的web服务器有能力处理需要大小的负载。
+尽可能的试验这些值，以使您的web服务器有能力处理特定大小的负载。
 
 **一个小警告**: 如果这些值设置的不合适，则您会蒙受阻挡合法用户的风险。
 
@@ -153,7 +153,7 @@ mod_evasive被配置为使用/etc/httpd/conf.d/mod_evasive.conf中的指令。�
 
 #### DOSEmailNotify ####
 
-如果您运行有一个邮件服务器，您可以通过Apache发送警告消息。注意，如果SELinux已开启，您需要授权apache用户SELinux权限来发送email。您可以通过下面的命令来授予权限：
+如果您运行有一个邮件服务器，您可以通过Apache发送警告消息。注意，如果SELinux已开启，您需要授权apache用户SELinux的权限来发送email。您可以通过下面的命令来授予权限：
 
     # setsebool -P httpd_can_sendmail 1
 
@@ -161,7 +161,7 @@ mod_evasive被配置为使用/etc/httpd/conf.d/mod_evasive.conf中的指令。�
 
     DOSEmailNotify you@yourdomain.com
 
-如果这个值被合适的设置并且您的邮件服务器在正常的运行，当一个IP地址被加入黑名单时，将会有一封邮件被发送到相应的地址。
+如果这个值被合适的设置并且您的邮件服务器在正常的运行，则当一个IP地址被加入黑名单时，会有一封邮件被发送到相应的地址。
 
 #### DOSSystemCommand ####
 
@@ -221,9 +221,9 @@ mod_evasive被配置为使用/etc/httpd/conf.d/mod_evasive.conf中的指令。�
 
 注意，您（也只有您）将负责您模拟所造成的结果。请不要考虑向不在您网络中的服务器发起模拟攻击。
 
-假如您想对一个由别人托管的VPS做这些事情，您需要向您的托管上发送适当的警告或就那样的流量通过他们的网络获得允许。Tecmint.com不会为您的行为负责！
+假如您想对一个由别人托管的VPS做这些事情，您需要向您的托管商发送适当的警告或就那样的流量通过他们的网络获得允许。Tecmint.com不会为您的行为负责！
 
-另外，近从一个主机发起一个Dos攻击的模拟无法代表真实的攻击。为了模拟真实的攻击，您需要作为许多客户端在同一时间将您的服务器作为目标。
+另外，仅从一个主机发起一个Dos攻击的模拟无法代表真实的攻击。为了模拟真实的攻击，您需要使用许多客户端在同一时间将您的服务器作为目标。
 
 我们的测试环境由一个CentOS 7服务器[IP 192.168.0.17]和一个Windows组成，在Windows[IP 192.168.0.103]上我们发起攻击：
 
@@ -242,7 +242,7 @@ mod_evasive被配置为使用/etc/httpd/conf.d/mod_evasive.conf中的指令。�
 
 ### 结论 ###
 
-在开启mod_security和mod_evasive的情况下，模拟攻击会导致CPU和RAM用量在源IP地址被假如防火墙之前出现短暂几秒的使用峰值。如果没有这些模块，模拟攻击绝对会很快将服务器击溃，并在攻击期间无法提供服务。
+在开启mod_security和mod_evasive的情况下，模拟攻击会导致CPU和RAM用量在源IP地址被加入黑名单之前出现短暂几秒的使用峰值。如果没有这些模块，模拟攻击绝对会很快将服务器击溃，并使服务器在攻击期间无法提供服务。
 
 我们很高兴听见您打算使用（或已经使用过）这些工具。我们期望得到您的反馈，所以，请在留言处留下您的评价和问题，谢谢！
 
