@@ -58,3 +58,85 @@ TextadeptÊÇÄÇÐ©ÏëÒªÎÞÏÞµÄÀ©Õ¹ÐÔÇÒ²»Ô¸ÎþÉüËÙ¶È»òÇü·þÓÚ´úÂëÅòÕÍµÄ³ÌÐòÔ±ÃÇµÄÀíÏë±à¼
 
 ![](http://www.linuxlinks.com/portal/content/reviews/Editors/Screenshot-vim.png)
 
+vimÊÇÒ»¸ö¸ß¼¶µÄÎÄ±¾±à¼­Æ÷£¬Ëü»ùÓÚ'vi'µÄÇ¿´ó£¬²¢ÓµÓÐ¸üÈ«ÃæµÄ¹¦ÄÜ¼¯¡£
+
+Õâ¸ö±à¼­Æ÷¶Ô±à³ÌºÍ±à¼­ÆäËû´¿ASCIIµÄÎÄ¼þÊ®·ÖÓÐÓÃ¡£ËùÓÐµÄÃüÁî¶¼ÓÉÆÕÍ¨µÄ¼üÅÌ×Ö·ûÌá¹©£¬Òò´ËÄÜ¹»Ê¹ÓÃÊ®Ö¸À´ÊäÈë£¬Òò¶øÊ®·Ö¿ìËÙ¡£ÁíÍâ£¬¹¦ÄÜ¼ü¿ÉÒÔÓÉÓÃ»§À´¶¨Òå£¬²¢ÇÒ¿ÉÒ²ÒÔÊ¹ÓÃÊó±ê¡£
+
+VimÍ¨³£±»³Æ×÷"³ÌÐòÔ±µÄ±à¼­Æ÷"£¬ËüÊ®·ÖÊÊºÏÓÚ±à³Ì£¬²¢±»ÈÏÎª¿ÉÒÔ×÷ÎªÍêÕûµÄ¼¯³É¿ª·¢»·¾³¡£È»¶ø£¬Õâ¸öÈí¼þ²¢²»ÊÇ½ö½öÃæÏò³ÌÐòÔ±¡£Vim¸ß¶ÈÖØÊÓ¸÷ÖÖÎÄ±¾±à¼­£¬´Ó±àÐ´emailµ½ÐÞ¸ÄÅäÖÃÎÄ¼þ¡£
+
+VimµÄ½Ó¿Ú»ùÓÚÎÄ±¾ÓÃ»§½çÃæÏÂµÄÃüÁîÐÐ¡£¾¡¹ÜËüµÄÍ¼ÐÎ»¯°æ±¾gVimÎª³£ÓÃµÄÃüÁîÌí¼ÓÁË²Ëµ¥ºÍ¹¤¾ßÀ¸£¬Õâ¸öÈí¼þµÄÕû¸ö¹¦ÄÜÒÀ¾ÉÒÔÀµÓÚËüµÄÃüÁîÐÐÄ£Ê½¡£
+
+#### ¹¦ÄÜ°üÀ¨: ####
+
+
+- 3 ÖÖÄ£Ê½:
+- - Command Ä£Ê½
+- - Insert Ä£Ê½
+- - Command line Ä£Ê½
+- ÎÞÏÞÖÆµÄ³·ÏúÖØ×ö
+- ¶à¸ö´°¿ÚºÍ»º³åÇø
+- Æ½»¬µÄÊäÈëÄ£Ê½
+- ¸ù¾ÝËù±à¼­µÄÎÄ¼þµÄÀàÐÍÊ¹ÓÃ²»Í¬µÄÑÕÉ«»ò·ç¸ñ½øÐÐÓï·¨¸ßÁÁ
+- ½»»¥ÃüÁî
+- - ±ê¼ÇÒ»ÐÐ
+- - vi ÐÐ»º³å
+- - ÒÆ¶¯´úÂë¿é
+- ¿é²Ù×÷
+- ÃüÁîÀúÊ·
+- À©Õ¹µÄÕýÔò±í´ïÊ½
+- ±à¼­Ñ¹Ëõ/´ò°üÎÄ¼þ (gzip, bzip2, zip, tar)
+- ÎÄ¼þÃû²¹È«
+- ±ê¼ÇÌø×ª
+- ÕÛµþÎÄ±¾
+- Ëõ½ø
+- ctagsºÍcscopeÕûºÏ
+- 100%ÓëviµÄÄ£Ê½¼æÈÝ
+- ²å¼þÓÃÓÚÌí¼Ó/À©Õ¹¹¦ÄÜ
+- ºê
+- vimscript, VimµÄÄÚ²¿½Å±¾
+- UnicodeÖ§³Ö
+- ¶àÓïÑÔÖ§³Ö
+- ÔÚÏß°ïÖúÖ§³Ö
+
+- ÍøÖ·: [www.vim.org][2]
+- ¿ª·¢Õß: Bram Moolenaar
+- Ðí¿ÉÖ¤: GNU GPL compatible (charityware)
+- °æ±¾ºÅ: 7.4
+
+----------
+
+### ne ###
+
+![](http://www.linuxlinks.com/portal/content/reviews/Editors/Screenshot-ne.png)
+
+neÊÇÒ»¿îÈ«ÆÁÄ»µÄ¿ªÔ´ÎÄ±¾±à¼­Æ÷¡£ËüÇãÏòÓÚÊÇÒ»¸ö±Èvi¸üÈÝÒ×Ñ§Ï°µÄviÌæ´úÎï£¬²¢ÇÒÔÚPOSIX-¼æÈÝµÄÏµÍ³ÖÐ¿É±ãÐ¯Ê¹ÓÃ¡£
+
+ne¶ÔÓÚÐÂÊÖÀ´ËµÒ×ÓÚÊ¹ÓÃ£¬µ«Ò²ÓµÓÐÇ¿´óµÄºÍÍêÈ«ÅäÖÃµÄÒýµ¼£¬²¢ÇÒÔÚ×ÊÔ´Ê¹ÓÃÉÏÊ®·Ö½ÚÔ¼¡£
+
+#### ¹¦ÄÜ°üÀ¨: ####
+
+
+- ÈýÖÖÓÃ»§½Ó¿Ú£º ¿ØÖÆ»÷¼ü£¬ÃüÁîÐÐºÍ²Ëµ¥£»»÷¼üºÍ²Ëµ¥¶¼¿ÉÅäÖÃ
+- Óï·¨¸ßÁÁ
+- ¶ÔÓÚUTF-8ÎÄ¼þµÄÍêÈ«Ö§³Ö£¬°üÀ¨¶àÁÐ×Ö·û
+- ÎÄµµ£¬¼ôÇÐ£¬ÏÔÊ¾µÄÎ¬¶ÈºÍÎÄ¼þ/ÐÐºÅ³¤¶È¶¼ÓÐ±àºÅ£¬²¢ÇÒ½öÊÜÖÆÓÚ»úÆ÷µÄÕûÐÍ×Ö³¤
+- ¼òµ¥µÄ½Å±¾ÓïÑÔ£¬½Å±¾¿ÉÒÔÓÃ¹ý¼òµ¥Ò×Àí½âµÄÂ¼ÖÆ/²¥·ÅµÄ·½Ê½ÖÆ×÷
+- ÎÞÏÞÖÆµÄ³·Ïú/ÖØ×ö¹¦ÄÜ£¨¿ÉÒÔÍ¨¹ýÃüÁî½ûÓÃ£©
+- »ùÓÚ±»±à¼­µÄÎÄ¼þÀ©Õ¹µÄ×Ô¶¯Ï²ºÃÏµÍ³
+- Ê¹ÓÃÄúÎÄµµÖÐµÄ´ÊÓï×ö×Öµä½øÐÐ×Ô¶¯Ç°×º²¹È«
+- ÍêÈ«Ò×ÓÃµÄÎÄ¼þ´æÈ¡¹¦ÄÜ
+- À©Õ¹µÄÕýÔò±í´ïÊ½¿ÉÓÃÓÚ²éÕÒºÍÌæ»»£¬ÀàËÆemacsºÍvi
+- ·Ç³£½ô´ÕµÄÄÚ´æÄ£ÐÍ£¬ÔÚ¼ÓÔØºÍÐÞ¸Ä´óÐÍÎÄ¼þÊ±Ê®·Ö¿ìËÙ
+- ¿É±à¼­¶þ½øÖÆÎÄ¼þ
+
+- ÍøÖ·: [ne.di.unimi.it][3]
+- ¿ª·¢Õß: Sebastiano Vigna (original developer). Additional features added by Todd M. Lewis
+- Ðí¿ÉÖ¤: GNU GPL v3
+- °æ±¾ºÅ: 2.5
+
+----------
+
+
+
+
+
