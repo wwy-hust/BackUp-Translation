@@ -136,7 +136,82 @@ ne对于新手来说易于使用，但也拥有强大的和完全配置的引导，并且在资源使用上十分节约
 
 ----------
 
+### Zile ###
 
+![](http://www.linuxlinks.com/portal/content/reviews/Editors/Screenshot-Zile.png)
 
+Zile是Lossy Emacs（Emacs精简版），它是一个小型的Emacs的克隆版。Zile是一个可定制的，自文档化，实时显示的编辑器，Zile编写时像Emacs一样尽可能的小，每个Emacs用户都会对Zile感到亲切。
 
+Zile以它极小的RAM用量，大约130KB，以及快速开始编辑而闻名。它是8比特清洁的，允许用于编写任何种类的文件。
 
+#### 功能包括:  ####
+
+- 小型但快速、强大
+- 多个缓冲区，允许多级的撤销
+- 多窗口
+- 好用，有力
+- 以最小的缓冲区完成补全
+- 自动填充 (自动换行)
+- 寄存器视图
+- 看起来像Emacs，键序列、功能和变量名都与Emacs相同
+- Killing
+- Yanking
+- 自动行末检测
+
+- 网址: [www.gnu.org/software/zile][4]
+- 开发者: Reuben Thomas, Sandro Sigala, David A. Capello
+- 许可证: GNU GPL v2
+- 版本号: 2.4.11
+
+----------
+
+### nano ###
+
+![](http://www.linuxlinks.com/portal/content/reviews/Editors/Screenshot-nano.png)
+
+nano是基于curses库的文本编辑器。它是Pico（Pine电子邮件客户端编辑器）的一个复刻版。
+
+由于Pine的许可证问题诉讼案（Pine并未以开源许可证发布），并且也因为Pine缺少一些重要的功能，nano项目于1999年开始。
+
+nano致力于赶上Pico的功能和其易用性，与此同时提供更多的功能，但不集成Pine/Pico的邮件客户端。
+
+nano像Pico一样是以键盘为导向的设计，可以用控制键来控制。
+
+#### 功能包括:  ####
+
+- 交互式的查找和替换
+- 彩色语法高亮
+- 转到行号和列号处
+- 自动缩进
+- 功能开关
+- 支持UTF-8
+- 混合型的文件类型自动转换
+- 逐字输入模式
+- 多个文件缓冲区
+- 平滑滚动
+- 括号匹配
+- 自定义引用字符串
+- 备份文件
+- 国际化支持
+- tab补全文件名
+
+- 网址: [nano-editor.org][5]
+- 开发者: Chris Allegretta, David Lawrence, Jordi Mallach, Adam Rogoyski, Robert Siemborski, Rocco Corsi, David Benbennick, Mike Frysinger
+- 许可证: GNU GPL v3
+- 版本号: 2.2.6
+
+--------------------------------------------------------------------------------
+
+via: http://www.linuxlinks.com/article/20141011073917230/TextEditors.html
+
+作者：Frazer Kline
+译者：[wwy-hust](https://github.com/wwy-hust)
+校对：[校对者ID](https://github.com/校对者ID)
+
+本文由 [LCTT](https://github.com/LCTT/TranslateProject) 原创翻译，[Linux中国](http://linux.cn/) 荣誉推出
+
+[1]:http://foicica.com/textadept/
+[2]:http://www.vim.org/
+[3]:http://ne.di.unimi.it/
+[4]:http://www.gnu.org/software/zile/
+[5]:http://nano-editor.org/
