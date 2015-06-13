@@ -72,13 +72,134 @@ iptables使用的表由哪些？请简要的描述iptables使用的表以及它�
 
 ### 8. 怎样检测并且确保iptables服务正在运行？ ###
 
+> **答案** : 您可以在终端中运行下面的命令来检测iptables的状态。
+> 
+>     # service status iptables			[On CentOS 6/5]
+>     # systemctl status iptables			[On CentOS 7]
+> 
+> 如果iptables没有在运行，可以使用下面的语句
+> 
+>     ---------------- 在CentOS 6/5下 ---------------- 
+>     # chkconfig --level 35 iptables on
+>     # service iptables start
+> 
+>     ---------------- 在CentOS 7下 ---------------- 
+>     # systemctl enable iptables 
+>     # systemctl start iptables 
+> 
+> 我们还可以检测iptables的模块是否被加载：
+> 
+>     # lsmod | grep ip_tables
 
+### 9. 你怎么检查iptables中当前定义的规则呢？ ###
 
+> **答案** : 当前的规则可以简单的用下面的命令查看：
+> 
+>     # iptables -L
+> 
+> 示例输出
+> 
+>     Chain INPUT (policy ACCEPT)
+>     target     prot opt source               destination         
+>     ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+>     ACCEPT     icmp --  anywhere             anywhere            
+>     ACCEPT     all  --  anywhere             anywhere            
+>     ACCEPT     tcp  --  anywhere             anywhere             state NEW tcp dpt:ssh
+>     REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+>     
+>     Chain FORWARD (policy ACCEPT)
+>     target     prot opt source               destination         
+>     REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+>     
+>     Chain OUTPUT (policy ACCEPT)
+>     target     prot opt source               destination
 
+### 10. 你怎样刷新所有的iptables规则或者特定的链呢？ ###
 
+> **答案** : 您可以使用下面的命令来刷新一个特定的链。
+>  
+>     # iptables --flush OUTPUT
+> 
+> 要刷新所有的规则，可以用：
+> 
+>     # iptables --flush
 
+### 11. 请在iptables中添加一条规则，接受所有从一个信任的IP地址（例如，192.168.0.7）过来的包。 ###
 
+> **答案** : 上面的场景可以通过运行下面的命令来完成。
+> 
+>     # iptables -A INPUT -s 192.168.0.7 -j ACCEPT 
+> 
+> 我们还可以在源IP中使用标准的斜线和子网掩码：
+> 
+>     # iptables -A INPUT -s 192.168.0.7/24 -j ACCEPT 
+>     # iptables -A INPUT -s 192.168.0.7/255.255.255.0 -j ACCEPT
 
+### 12. 怎样在iptables中添加规则以ACCEPT，REJECT，DENY和DROP ssh的服务？ ###
 
+> **答案** : 但愿ssh运行在22端口，那也是ssh的默认端口，我们可以在iptables中添加规则来ACCEPT ssh的tcp包（在22号端口上）。
+> 
+>     # iptables -A INPUT -s -p tcp - -dport  -j ACCEPT 
+> 
+> REJECT ssh服务（22号端口）的tcp包。
+> 
+>     # iptables -A INPUT -s -p tcp - -dport  -j REJECT
+> 
+> DENY ssh服务（22号端口）的tcp包。
+> 
+>  
+>     # iptables -A INPUT -s -p tcp - -dport  -j DENY
+> 
+> DROP ssh服务（22号端口）的tcp包。
+> 
+>  
+>     # iptables -A INPUT -s -p tcp - -dport  -j DROP
 
+### 13. 让我给你另一个场景，假如有一台电脑的本地IP地址是192.168.0.6。你需要封锁在21、22、23和80号端口上的连接，你会怎么做？ ###
 
+> **答案** : 这时，我所需要的就是在iptables中使用‘multiport‘选项，并将要封锁的端口号跟在它后面。上面的场景可以用下面的一条语句搞定：
+> 
+>     # iptables -A INPUT -s 192.168.0.6 -p tcp -m multiport --dport 22,23,80,8080 -j DROP
+> 
+> 可以用下面的语句查看写入的规则。
+> 
+>     # iptables -L
+>     
+>     Chain INPUT (policy ACCEPT)
+>     target     prot opt source               destination         
+>     ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+>     ACCEPT     icmp --  anywhere             anywhere            
+>     ACCEPT     all  --  anywhere             anywhere            
+>     ACCEPT     tcp  --  anywhere             anywhere             state NEW tcp dpt:ssh
+>     REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+>     DROP       tcp  --  192.168.0.6          anywhere             multiport dports ssh,telnet,http,webcache
+>     
+>     Chain FORWARD (policy ACCEPT)
+>     target     prot opt source               destination         
+>     REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+>     
+>     Chain OUTPUT (policy ACCEPT)
+>     target     prot opt source               destination
+
+**面试官** : 好了，我问的就是这些。你是一个很有价值的雇员，我们不会错过你的。我将会向HR推荐你的名字。如果你有什么问题，请问我。
+
+作为一个候选人我不愿不断的问将来要做的项目的事以及公司里其他的事，这样会打断愉快的对话。更不用说HR轮会不会比较难，总之，我获得了机会。
+
+同时我要感谢Avishek和Ravi（我的朋友）花时间帮我整理我的面试。
+
+朋友！如果您有过类似的面试，并且愿意与数百万Tecmint读者一起分享您的面试经历，请将您的问题和答案发送到admin@tecmint.com。
+
+谢谢！保持联系。如果我能更好的回答我上面的问题的话，请记得告诉我。
+
+--------------------------------------------------------------------------------
+
+via: http://www.tecmint.com/linux-firewall-iptables-interview-questions-and-answers/
+
+作者：[Avishek Kumar][a]
+译者：[wwy-hust](https://github.com/wwy-hust)
+校对：[校对者ID](https://github.com/校对者ID)
+
+本文由 [LCTT](https://github.com/LCTT/TranslateProject) 原创翻译，[Linux中国](https://linux.cn/) 荣誉推出
+
+[a]:http://www.tecmint.com/author/avishek/
+[1]:http://www.tecmint.com/install-webmin-web-based-system-administration-tool-for-rhel-centos-fedora/
