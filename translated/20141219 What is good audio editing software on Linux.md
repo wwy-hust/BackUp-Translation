@@ -43,3 +43,25 @@ Linux下优秀的音频编辑软件
 
 ![](https://farm8.staticflickr.com/7537/15838603279_70ee925057_c.jpg)
 
+最后站在我面前的是Traverso，它支持无限制的音轨计数，并直接整合了CD烧录的功能。另外，它对我来说是介于简单的软件和专业的软件之间的程序。它的界面是KDE样式的，其键盘配置很简单。更有趣的是，Traverso会监视您的系统资源以确定不会超过您的CPU或者硬件的能力。
+
+总而言之，能在Linux系统上看到这么多不同的应用程序是一件开心的事。它使得您永远可以找到最适合自己的那一款。虽然我最喜欢的应用是Audacity，但我非常震惊于LMMS和Jokosher的设计。
+
+我们有漏掉什么么？您在Linux下使用哪一款软件呢？原因是什么呢？请在留言处留言让我们知道。
+
+--------------------------------------------------------------------------------
+
+via: http://xmodulo.com/good-audio-editing-software-linux.html
+
+作者：[Adrien Brochard][a]
+译者：[译者ID](https://github.com/译者ID)
+校对：[校对者ID](https://github.com/校对者ID)
+
+本文由 [LCTT](https://github.com/LCTT/TranslateProject) 原创翻译，[Linux中国](http://linux.cn/) 荣誉推出
+
+[a]:http://xmodulo.com/author/adrien
+[1]:http://audacity.sourceforge.net/
+[2]:https://launchpad.net/jokosher/
+[3]:http://ardour.org/
+[4]:http://kwave.sourceforge.net/
+[5]:http://qtractor.sourceforge.net/qtractor-index.html
