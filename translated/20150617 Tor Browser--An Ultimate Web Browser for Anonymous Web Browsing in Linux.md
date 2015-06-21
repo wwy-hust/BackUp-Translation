@@ -32,3 +32,32 @@ Tor是一个自由分发的应用软件，以BSD式的许可证发布，通过其安全可靠的洋葱式的结构，
 - Tor拥有处理上千的转播和上百万用户的能力。
 
 #### Tor浏览器如何工作？ ####
+
+Tor的工作方式基于洋葱路由的概念。洋葱路由的结构类似洋葱，它的每一层都嵌套在另一层里面，就像洋葱一样。这种嵌套的结构负责多次加密数据并将其通过虚拟电路进行发送。在客户端一边每一层都在将他传递到下一层之前解密数据。最后一层在将原始数据传递到目的地前解密最里面一层的加密数据。
+
+在这个过程里，这种解密所有层的功能设计的如此聪明以至于无法追踪IP以及用户的地理位置，因此可以限制任何人观察您访问站点的网络连接。
+
+所有这些过程看起来有些复杂，但用户使用Tor浏览器时没有必要担心。实际上，Tor浏览器的功能像其他浏览器一样（尤其是Mozilla的Firefox）。
+
+### 在Linux中安装Tor浏览器 ###
+
+就像上面讨论的一样，Tor浏览器在Linux和Windows以及Mac下都可用。用户需要根据系统和架构的不同在下面的链接处下载最新的版本（例如，Tor浏览器4.0.4）。
+
+- [https://www.torproject.org/download/download-easy.html.en][1]
+
+在下载Tor浏览器后，我们需要安装它。但好的是我们不需要安装‘Tor’。它能直接从随身设备中运行，并且该浏览器可以被预配置。这意味着插件和运行的特性可以完美的移植。
+
+下载打包文件（*.tar.xz）后我们需要解压它。
+
+**32位系统**
+
+    $ wget https://www.torproject.org/dist/torbrowser/4.0.4/tor-browser-linux32-4.0.4_en-US.tar.xz
+    $ tar xpvf tor-browser-linux32-4.0.4_en-US.tar.xz
+
+**64位系统**
+
+    $ wget https://www.torproject.org/dist/torbrowser/4.0.4/tor-browser-linux64-4.0.4_en-US.tar.xz
+    $ tar -xpvf tor-browser-linux64-4.0.4_en-US.tar.xz 
+
+**注意** : 在上面的命令中，我们使用‘$‘意味着这个压缩包应以普通用户而不是root用户来解压。我们强烈建议您不要以root用户解压和运行Tor浏览器。
+
