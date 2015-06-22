@@ -61,3 +61,100 @@ TorµÄ¹¤×÷·½Ê½»ùÓÚÑó´ĞÂ·ÓÉµÄ¸ÅÄî¡£Ñó´ĞÂ·ÓÉµÄ½á¹¹ÀàËÆÑó´Ğ£¬ËüµÄÃ¿Ò»²ã¶¼Ç¶Ì×ÔÚÁíÒ»²
 
 **×¢Òâ** : ÔÚÉÏÃæµÄÃüÁîÖĞ£¬ÎÒÃÇÊ¹ÓÃ¡®$¡®ÒâÎ¶×ÅÕâ¸öÑ¹Ëõ°üÓ¦ÒÔÆÕÍ¨ÓÃ»§¶ø²»ÊÇrootÓÃ»§À´½âÑ¹¡£ÎÒÃÇÇ¿ÁÒ½¨ÒéÄú²»ÒªÒÔrootÓÃ»§½âÑ¹ºÍÔËĞĞTorä¯ÀÀÆ÷¡£
 
+ÔÚ³É¹¦µÄ½âÑ¹ºó£¬ÎÒÃÇ±ã¿ÉÒÔ½«½âÑ¹ºóµÄä¯ÀÀÆ÷ÒÆ¶¯µ½ÈÎºÎµØ·½/USB´æ´¢Éè±¸ÖĞ¡£²¢´Ó½âÑ¹µÄÎÄ¼ş¼ĞÒÔ·ÇrootÓÃ»§Ö±½ÓÔËĞĞ¡®start-tor-browser¡¯¡£
+
+    $ cd tor-browser_en-US
+    $ ./start-tor-browser
+
+![¿ªÊ¼Ê¹ÓÃTorä¯ÀÀÆ÷](http://www.tecmint.com/wp-content/uploads/2014/04/Starting-Tor-Network.jpg)
+
+¿ªÊ¼Ê¹ÓÃTorä¯ÀÀÆ÷
+
+**1. ³¢ÊÔÁ¬½Óµ½TorÍøÂç¡£µã»÷¡°Á¬½Ó¡±Ö®ºóTor½«°´ÕÕÉèÖÃ°ïÄú×öÊ£ÏÂµÄÊÂÇé¡£**
+
+![Á¬½Óµ½TorÍøÂç](http://www.tecmint.com/wp-content/uploads/2014/04/Tor-Network-Settings.jpg)
+
+Á¬½Óµ½TorÍøÂç
+
+**2. »¶Ó­´°¿Ú/±êÇ©¡£**
+
+![Tor»¶Ó­½çÃæ](http://www.tecmint.com/wp-content/uploads/2014/04/Tor-Welcome-Screen.png)
+
+Tor»¶Ó­½çÃæ
+
+**3. Torä¯ÀÀÆ÷´ÓYoutube´¦¼ÓÔØÊÓÆµ¡£**
+
+![ÔÚYoutubeÉÏ¿´ÊÓÆµ](http://www.tecmint.com/wp-content/uploads/2014/04/Watching-Video-on-Youtube.jpg)
+
+ÔÚYoutubeÉÏ¿´ÊÓÆµ
+
+**4. ´ò¿ªÒøĞĞÍøÖ·ÒÔ½øĞĞÔÚÏß¹ºÎïºÍ½»Ò×¡£**
+
+![ä¯ÀÀÒøĞĞÕ¾µã](http://www.tecmint.com/wp-content/uploads/2014/04/Browsing-Site.jpg)
+
+ä¯ÀÀÒøĞĞÕ¾µã
+
+**5. ä¯ÀÀÆ÷ÏÔÊ¾ÎÒµ±Ç°µÄ´úÀíIP¡£×¢ÒâÎÄ±¾Îª¡°Proxy Server detected¡±¡£**
+
+![¼ì²éIPµØÖ·](http://www.tecmint.com/wp-content/uploads/2014/04/Checking-IP-Address.jpg)
+
+¼ì²éIPµØÖ·
+
+**×¢Òâ**: Ã¿´ÎÄúÏëÔËĞĞTorÊ±£¬ÄúĞèÒªÊ¹ÓÃÎÄ±¾Ä£Ê½À´Ö¸ÏòTorÆô¶¯½Å±¾¡£²¢ÇÒ¸ÃÖÕ¶ËÔÚÄúÔËĞĞTorÊ±»á³ÖĞø±£³ÖÃ¦Âµ×´Ì¬¡£ÈçºÎ¿Ë·şÕâĞ©£¬²¢´´½¨Ò»¸ö×ÀÃæ/DockÀ¸Í¼±êÄØ£¿
+
+6. ÎÒÃÇĞèÒªÔÚ½âÑ¹µÄÎÄ¼ş¼ĞÖĞ´´½¨`tor.desktop`¡£
+
+$ touch tor.desktop
+
+½Ó×ÅÊ¹ÓÃÄúÏ²»¶µÄ±à¼­Æ÷±à¼­Õâ¸öÎÄ¼ş£¬¼ÓÈëÏÂÃæµÄÎÄ±¾£¬ÕâÀïÎÒÊ¹ÓÃnano¡£
+
+    $ nano tor.desktop 
+
+----------
+
+    #!/usr/bin/env xdg-open
+    [Desktop Entry]
+    Encoding=UTF-8
+    Name=Tor
+    Comment=Anonymous Browse
+    Type=Application
+    Terminal=false
+    Exec=/home/avi/Downloads/tor-browser_en-US/start-tor-browser
+    Icon=/home/avi/Downloads/tor-browser_en-US/Browser/browser/icons/mozicon128.png
+    StartupNotify=true
+    Categories=Network;WebBrowser;
+
+**×¢Òâ**: È·±£½«ÉÏÃæµÄtorä¯ÀÀÆ÷µÄÂ·¾¶Ìæ»»ÎªÄúµÄ»·¾³ÖĞµÄÂ·¾¶¡£
+
+**7. Ò»µ©¸ã¶¨ºó£¬Äú¾Í¿ÉÒÔË«»÷`tor.desktop`ÎÄ¼şÀ´ÔËĞĞTorä¯ÀÀÆ÷ÁË£¬Äú¿ÉÄÜĞèÒªÔÚµÚÒ»´ÎÔËĞĞÊ±ĞÅÈÎ¸ÃÎÄ¼ş¡£**
+
+![TorÓ¦ÓÃÆô¶¯Æ÷](http://www.tecmint.com/wp-content/uploads/2014/04/Tor-Application-Launcher.jpg)
+
+TorÓ¦ÓÃÆô¶¯Æ÷
+
+**8. Ò»µ©ÄúÑ¡ÔñÁËĞÅÈÎ£¬Çë×¢Òâ`tor.desktop`ÎÄ¼şµÄÍ¼±êÔò»á¸Ä±ä¡£**
+
+![TorÍ¼±êÒÑ¸Ä±ä](http://www.tecmint.com/wp-content/uploads/2014/04/Tor-icon-changed.jpg)
+
+TorÍ¼±êÒÑ¸Ä±ä
+
+**9. Äú¿ÉÒÔÍÏ×§`tor.desktop`µÄÍ¼±êÀ´ÔÚ×ÀÃæºÍDockÀ¸ÖĞ´´½¨¿ì½İ·½Ê½¡£**
+
+![ÔÚ×ÀÃæÌí¼ÓTor¿ì½İ·½Ê½](http://www.tecmint.com/wp-content/uploads/2014/04/Add-Tor-Shortcut-on-Desktop.jpg)
+
+ÔÚ×ÀÃæÌí¼ÓTor¿ì½İ·½Ê½
+
+**10. ¹ØÓÚTorä¯ÀÀÆ÷¡£**
+
+![¹ØÓÚTorä¯ÀÀÆ÷](http://www.tecmint.com/wp-content/uploads/2014/04/About-Tor-Browser.jpg)
+
+¹ØÓÚTorä¯ÀÀÆ÷
+
+**×¢Òâ**: Èç¹ûÄúÔÚÊ¹ÓÃ¾É°æ±¾µÄTor£¬Äú¿ÉÒÔ´ÓÉÏÃæµÄ´°¿Ú¸üĞÂËü¡£
+
+#### Ó¦ÓÃµÄ¿ÉÓÃĞÔºÍÁìÓò ####
+
+- ÄäÃûÊ¹ÓÃÍøÂç¡£
+- ä¯ÀÀ±»×èµ²µÄÒ³Ãæ¡£
+- Á¬½ÓÆäËûÓ¦ÓÃ£¬¼´£¨FTP£©À´±£Ö¤ÍøÂç°²È«µÄ·ÃÎÊ¡£
+
