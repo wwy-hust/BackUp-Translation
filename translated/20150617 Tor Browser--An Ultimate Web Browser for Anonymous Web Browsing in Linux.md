@@ -158,3 +158,45 @@ Tor图标已改变
 - 浏览被阻挡的页面。
 - 连接其他应用，即（FTP）来保证网络安全的访问。
 
+#### 关于Tor浏览器的争论 ####
+
+- 在Tor浏览器的周边并没有什么安全措施。比如，数据入口点和出口点。
+- 一项2011年的研究发现一种特殊的针对Tor浏览器的攻击会得到BitTorrent用户的IP地址。
+- 在一些研究中发现某些特定的协议有泄漏IP地址的倾向。
+- Tor早些的版本绑定了旧版本的Firefox浏览器，这被证明较易受JavaScript攻击。
+- Tor浏览器工作的比较缓慢。
+
+#### 真实世界中Tor浏览器的实现 ####
+
+- Vuze BitTorrent Client
+- Anonymous Os
+- Os’es from Scratch
+- whonix 等
+
+#### Tor浏览器的未来 ####
+
+Tor浏览器是前途无量的。也许它实现的第一个应用程序非常出色。Tor浏览器必须加大对伸缩性的支持以及对最近的攻击的研究以保证数据安全。这个应用程序是未来的需要。
+
+#### 下载免费的电子书 ####
+
+非官方的Tor私密浏览指南
+
+[![](http://img.tradepub.com/free/w_make129/images/w_make129c4.gif)][2]
+
+### 结论 ###
+
+
+
+--------------------------------------------------------------------------------
+
+via: http://www.tecmint.com/tor-browser-for-anonymous-web-browsing/
+
+作者：[Avishek Kumar][a]
+译者：[wwy-hust](https://github.com/wwy-hust)
+校对：[校对者ID](https://github.com/校对者ID)
+
+本文由 [LCTT](https://github.com/LCTT/TranslateProject) 原创翻译，[Linux中国](https://linux.cn/) 荣誉推出
+
+[a]:http://www.tecmint.com/author/avishek/
+[1]:https://www.torproject.org/download/download-easy.html.en
+[2]:http://tecmint.tradepub.com/free/w_make129/prgm.cgi
