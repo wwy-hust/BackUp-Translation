@@ -38,3 +38,90 @@ cowsay并仅仅只能显示奶牛。它能生成预先制作的图片或者其他动物，包括鸭子、考拉、麋
 ### doge ###
 
 ![doge](http://www.linuxlinks.com/portal/content/reviews/Misc/Screenshot-doge.png)
+
+doge是一个基于有些愚蠢但很有趣的doge的梗的简单的每日信息脚本。它随机的打印一些在语法上有误的句子，有时这些基于您电脑中的东西。
+
+doge是一个在2013年非常流行的互联网潮流元素（梗）。这个梗通常由一幅日本柴犬的图片和彩色的文字组成。这些文字故意用一种蹩脚的应许写成了一些互联网的独白。
+
+- 随机的用不同的颜色和蹩脚的英语写下随机的句子
+- 终端中的柴犬效果非常棒
+- 获得系统数据，比如主机名、运行中的程序、当前用户、$EDITOR
+- 如果您安装了lolcat，您可以用它作为点缀: while true; do doge | lolcat -a -d 100 -s 100 -p 1; done
+- 标准输入支持: ls /usr/bin | doge 将打印一些/usr/bin下的可执行文件。哇噢。还有许多命令行的开关可以过滤词语以及控制词语的频率。
+
+网址: [github.com/thiderman/doge][3]
+
+### ASCIIQuarium ###
+
+![Asciiquarium](http://www.linuxlinks.com/portal/content/reviews/Misc/Screenshot-Asciiquarium.png)
+
+ASCIIQuarium是一个ASCII码方式的画出的水族馆/海洋动画。享受生活在您电脑中的水底的奇妙生物吧。
+
+想运行ASCIIQuarium，您需要安装Perl的curses包以及Term::Animation模块。请使用sudo apt-get install libcurses-perl来安装前者，使用sudo cpan Term::Animation来安装后者。两个命令都需要在命令行中运行。
+
+功能包括：
+
+- 五彩的鱼儿
+- 有趣的动画，包括钓鱼钩
+- 还有许多的天鹅、鸭子、海豚和船只
+
+网址: [www.robobunny.com][4]
+
+### sl - 蒸汽机车 ###
+
+![sl](http://www.linuxlinks.com/portal/content/reviews/Misc/Screenshot-sl.png)
+
+sl是一个有趣的终端应用，它为那些意外的错将ls输成sl的用户显示一个动画。
+
+我打字非常草率，更喜欢速度而不是准确性。但错别字在命令行中是非常危险的。因此sl作为一个实际的提醒者，提醒我们注意错误输入的这种坏习惯。它总是会让人咯咯的笑。
+
+功能包括：
+
+- 使用 -F, 火车在飞翔
+- 使用 -l, 显示一个小型的火车
+- 使用 -a, 看上去发生了意外
+
+网址: [github.com/mtoyoda/sl][5]
+
+### aafire ###
+
+![aafire](http://www.linuxlinks.com/portal/content/reviews/Misc/Screenshot-aafire.png)
+
+aafire在终端中显示燃烧的ASCII火焰。它展示了一个ascii艺术库 - aalib库的强大能力。
+
+网址: [aa-project.sourceforge.net/aalib][6]
+
+### CMatrix ###
+
+![CMatrix](http://www.linuxlinks.com/portal/content/reviews/Misc/Screenshot-CMatrix.png)
+
+CMatrix是一个基于ncurses的程序，它模拟《黑客帝国》（一部电影）中的画面。如果您在一个山洞里度过了上个15年，那么您可能不知道黑客帝国是1999年美国科幻电影，主角为 Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving和 Joe Pantoliano。
+
+它可以在终端设置为132x300的情况下工作，并且可以以同样的速率进行滚动或者以用户定义的速度异步的滚动。
+
+功能包括：
+
+- 修改文本颜色
+- 使用粗体字符
+- 异步滚动
+- 使用老式的滚动效果
+- 屏幕保护程序模式
+
+网址: [www.asty.org/cmatrix][7]
+
+--------------------------------------------------------------------------------
+
+via: http://www.linuxlinks.com/article/20150614112018846/Humor.html
+
+译者：[wwy-hust](https://github.com/wwy-hust)
+校对：[校对者ID](https://github.com/校对者ID)
+
+本文由 [LCTT](https://github.com/LCTT/TranslateProject) 原创翻译，[Linux中国](https://linux.cn/) 荣誉推出
+
+[1]:https://github.com/busyloop/lolcat
+[2]:https://web.archive.org/web/20120225123719/http://www.nog.net/%7Etony/warez/cowsay.shtml
+[3]:https://github.com/thiderman/doge
+[4]:http://www.robobunny.com/projects/asciiquarium/html/
+[5]:https://github.com/mtoyoda/sl
+[6]:http://aa-project.sourceforge.net/aalib/
+[7]:http://www.asty.org/cmatrix/
