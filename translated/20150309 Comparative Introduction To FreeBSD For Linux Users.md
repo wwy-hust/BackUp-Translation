@@ -12,3 +12,7 @@ BSD×î³õ´ÓUNIX¼Ì³Ð¶øÀ´£¬Ä¿Ç°ÓÐÐí¶àµÄÀàUnix²Ù×÷ÏµÍ³ÊÇ»ùÓÚBSDµÄ¡£FreeBSDÊÇÊ¹ÓÃ×î¹ã·
 
 #### ÀúÊ· ####
 
+- FreeBSDµÄµÚÒ»¸ö°æ±¾·¢²¼ÓÚ1993Äê£¬ËüµÄµÚÒ»ÕÅCD-ROMÊÇFreeBSD1.0£¬Ò²·¢ÐÐÓÚ1993Äê¡£½ÓÏÂÀ´£¬FreeBSD 2.1.0ÔÚ1995Äê·¢²¼²¢ÇÒ»ñµÃÁËËùÓÐÓÃ»§µÄÇàíù¡£Êµ¼ÊÉÏÐí¶àIT¹«Ë¾¶¼ºÜÂúÒâµØÊ¹ÓÃFreeBSD£¬ÎÒÃÇ¿ÉÒÔÁÐ³öÆäÖÐµÄÒ»Ð©£ºIBM¡¢Nokia¡¢NetAppºÍJuniper Network¡£
+
+#### Ðí¿ÉÖ¤ ####
+
