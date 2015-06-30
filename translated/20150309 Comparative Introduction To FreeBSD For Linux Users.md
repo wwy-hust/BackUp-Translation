@@ -16,3 +16,18 @@ BSD×î³õ´ÓUNIX¼Ì³Ð¶øÀ´£¬Ä¿Ç°ÓÐÐí¶àµÄÀàUnix²Ù×÷ÏµÍ³ÊÇ»ùÓÚBSDµÄ¡£FreeBSDÊÇÊ¹ÓÃ×î¹ã·
 
 #### Ðí¿ÉÖ¤ ####
 
+- ¹ØÓÚËüµÄÐí¿ÉÖ¤£¬FreeBSDÒÔ¶àÖÖ¿ªÔ´Ðí¿ÉÖ¤½øÐÐ·¢²¼£¬Ëü×îÐÂµÄÃûÎªKernel´úÂëÒÔÁ½ÖÖ×ÓBSDÐí¿ÉÖ¤½øÐÐÁË·¢²¼£¬Ìá¹©Ê¹ÓÃºÍÖØÐÂ·¢²¼FreeBSDµÄ¾ø¶Ô×ÔÓÉ¡£ÆäËüµÄ´úÂëÒÔÈý¡¢ËÄÖÖ×ÓBSDÐí¿ÉÖ¤½øÐÐ·¢²¼£¬ÓÐÐ©ÊÇÒÔGPLºÍCDDLµÄÐí¿ÉÖ¤·¢²¼µÄ¡£
+
+#### ÓÃ»§ ####
+
+- FreeBSDµÄÖØÒªÌØµãÖ®Ò»¾ÍÊÇËü¶àÑùµÄÓÃ»§¡£Êµ¼ÊÉÏ£¬FreeBSD¿ÉÒÔ×÷ÎªÓÊ¼þ·þÎñÆ÷¡¢Web Server¡¢FTP·þÎñÆ÷ÒÔ¼°Â·ÓÉÆ÷µÈ£¬ÄúÖ»ÐèÒªÔÚËüÉÏÔËÐÐ·þÎñÏà¹ØµÄÈí¼þ¼´¿É¡£¶øÇÒFreeBSD»¹Ö§³ÖARM¡¢PowerPC¡¢MIPS¡¢x86¡¢x86-64¼Ü¹¹¡£
+
+### FreeBSDºÍLinuxµÄÏàËÆ´¦ ###
+
+FreeBSDºÍLinuxÊÇÁ½¸öÃâ·Ñ¿ªÔ´µÄÈí¼þ¡£Êµ¼ÊÉÏ£¬ËüÃÇµÄÓÃ»§¿ÉÒÔºÜÈÝÒ×µÄ¼ì²é²¢ÐÞ¸ÄÔ´´úÂë£¬ÓÃ»§ÓµÓÐ¾ø¶ÔµÄ×ÔÓÉ¡£¶øÇÒ£¬FreeBSDºÍLinux¶¼ÊÇÀàUnixÏµÍ³£¬ËüÃÇµÄÄÚºË¡¢ÄÚ²¿×é¼þ¡¢¿â³ÌÐò¶¼Ê¹ÓÃ´ÓÀúÊ·ÉÏµÄAT&T Unix´¦¼Ì³ÐµÄËã·¨¡£FreeBSD´Ó¸ù»ùÉÏ¸üÏñUnixÏµÍ³£¬¶øLinuxÊÇ×÷ÎªÃâ·ÑµÄÀàUnixÏµÍ³·¢²¼µÄ¡£Ðí¶à¹¤¾ßÓ¦ÓÃ¶¼¿ÉÒÔÔÚFreeBSDºÍLinuxÖÐÕÒµ½£¬Êµ¼ÊÉÏ£¬ËûÃÇ¼¸ºõÓÐÍ¬ÑùµÄ¹¦ÄÜ¡£
+
+´ËÍâ£¬FreeBSDÄÜ¹»ÔËÐÐ´óÁ¿µÄLinuxÓ¦ÓÃ¡£Ëü¿ÉÒÔ°²×°Ò»¸öLinuxµÄ¼æÈÝ²ã£¬Õâ¸ö¼æÈÝ²ã¿ÉÒÔÔÚ±àÒëFreeBSDÊ±¼ÓÈëAAC Compact LinuxµÃµ½»òÍ¨¹ýÏÂÔØÒÑ±àÒëÁËLinux¼æÈÝ²ãµÄFreeBSDÏµÍ³£¬ÆäÖÐ»á°üÀ¨¼æÈÝ³ÌÐò£ºaac_linux.ko¡£Õâ²»Í¬ÓÚLinux£¬LinuxÎÞ·¨ÔËÐÐFreeBSDµÄÈí¼þ¡£
+
+×îºó£¬ÎÒÃÇ×¢Òâµ½ËäÈ»¶þÕßÓÐÍ¬ÑùµÄÄ¿±ê£¬µ«¶þÕß»¹ÊÇÓÐÒ»Ð©²»Í¬Ö®´¦£¬ÎÒÃÇÔÚÏÂÒ»½ÚÖÐÁÐ³ö¡£
+
+### FreeBSDºÍLinuxµÄÇø±ð ###
